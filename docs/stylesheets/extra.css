@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+
+[data-md-color-scheme=slate] {
+    --md-default-bg-color: #0d0e1e !important;
+  }
+  
+
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+
+img {
+  border-radius: 0.7rem;
+}
