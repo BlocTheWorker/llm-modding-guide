@@ -28,6 +28,7 @@ theme:
 plugins:
   - i18n:
       docs_structure: folder
+      site_url: "https://bloctheworker.github.io/llm-modding-guide/"
       languages:
         - locale: en
           default: true
