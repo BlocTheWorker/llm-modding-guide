@@ -1,0 +1,602 @@
+
+<!doctype html>
+<html lang="tr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://bloctheworker.github.io/llm-modding-guide/tr/301/">
+      
+      
+        <link rel="prev" href="../201/">
+      
+      
+        <link rel="next" href="../401/">
+      
+      <link rel="icon" href="../../resource/icon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.1.21">
+    
+    
+      
+        <title>LLM Modlama 301 - LLM Modding Guide</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.eebd395e.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ecc896b0.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="indigo">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#llm-modlama-301" class="md-skip">
+          Ana içeriğe geç
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Başlık">
+    <a href="../" title="LLM Modding Guide" class="md-header__button md-logo" aria-label="LLM Modding Guide" data-md-component="logo">
+      
+  <img src="../../resource/icon.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            LLM Modding Guide
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              LLM Modlama 301
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+          
+            
+            
+            
+            <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+            
+              <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+              </label>
+            
+          
+            
+            
+            
+            <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+            
+              <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+              </label>
+            
+          
+        </form>
+      
+    
+    
+      <div class="md-header__option">
+        <div class="md-select">
+          
+          <button class="md-header__button md-icon" aria-label="Dil seç">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.52 17.52 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04M18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12m-2.62 7 1.62-4.33L19.12 17h-3.24Z"/></svg>
+          </button>
+          <div class="md-select__inner">
+            <ul class="md-select__list">
+              
+                <li class="md-select__item">
+                  <a href="../../301/" hreflang="en" class="md-select__link">
+                    English
+                  </a>
+                </li>
+              
+                <li class="md-select__item">
+                  <a href="./" hreflang="tr" class="md-select__link">
+                    Türkçe
+                  </a>
+                </li>
+              
+                <li class="md-select__item">
+                  <a href="../../de/301/" hreflang="de" class="md-select__link">
+                    Deutsch
+                  </a>
+                </li>
+              
+            </ul>
+          </div>
+        </div>
+      </div>
+    
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Sekmeler" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../" class="md-tabs__link">
+      Giriş
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../101/" class="md-tabs__link">
+      LLM Modlama 101
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../201/" class="md-tabs__link">
+      LLM Modlama 201
+    </a>
+  </li>
+
+      
+        
+  
+  
+    
+  
+
+
+  <li class="md-tabs__item">
+    <a href="./" class="md-tabs__link md-tabs__link--active">
+      LLM Modlama 301
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../401/" class="md-tabs__link">
+      LLM Modlama 401
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigasyon" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../" title="LLM Modding Guide" class="md-nav__button md-logo" aria-label="LLM Modding Guide" data-md-component="logo">
+      
+  <img src="../../resource/icon.png" alt="logo">
+
+    </a>
+    LLM Modding Guide
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        Giriş
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../101/" class="md-nav__link">
+        LLM Modlama 101
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../201/" class="md-nav__link">
+        LLM Modlama 201
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          LLM Modlama 301
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        LLM Modlama 301
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="İçindekiler">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      İçindekiler
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#model-veya-servis-secimi" class="md-nav__link">
+    Model veya Servis Seçimi
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ekim-2023-itibaryla-olas-secenekler" class="md-nav__link">
+    Ekim 2023 İtibarıyla Olası Seçenekler
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#yerel-modeller" class="md-nav__link">
+    Yerel Modeller
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cevrimici-modeller" class="md-nav__link">
+    Çevrimiçi Modeller
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#servis-modelleri" class="md-nav__link">
+    Servis Modelleri
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#neden-inworld-mantkl" class="md-nav__link">
+    Neden Inworld Mantıklı?
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../401/" class="md-nav__link">
+        LLM Modlama 401
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="llm-modlama-301">LLM Modlama 301</h1>
+<div style="text-align:center; overflow:hidden; max-height:330px;">  
+  <img src="../../resource/images/genimg.jpeg" alt="Kapak Resmi" style="width:60%; height:auto; object-fit:cover; object-position:center;">  
+</div>
+
+<h2 id="model-veya-servis-secimi">Model veya Servis Seçimi</h2>
+<p>Model veya servis seçiminde günümüzde birden çok seçeneğimiz bulunmaktadır. Ayrıca, bu belgenin tamamlanmasının ardından daha fazla seçenek ortaya çıkacaktır, bu yüzden bu listayı tamamen güncel bir liste yerine bugünün bir anlık görüntüsü olarak kullanmanızı öneririm. Hangi servisin veya çevrimiçi modelin ne olduğundan emin değilseniz, konuyu anlamak için lütfen <a href="https://bloctheworker.github.io/llm-modding-guide/tr/201">LLM Modlama 201</a> sayfasını ziyaret edin.  </p>
+<hr/>
+
+<h2 id="ekim-2023-itibaryla-olas-secenekler">Ekim 2023 İtibarıyla Olası Seçenekler</h2>
+<h2 id="yerel-modeller">Yerel Modeller</h2>
+<div style="text-align:center; overflow:hidden; max-height:330px;">
+  <img src="../../resource/images/brands.jpg" alt="Brands" style="width:60%; height:auto; object-fit:cover; object-position:center;">
+</div>
+
+<p>Bir SÜRÜ yerel model var, çoğunlukla temel modellerden türetilen ve ince ayar yapılmış modeller. Burada, temel modelleri listeleyeceğim:  </p>
+<ul>
+<li>
+<p><strong>Falcon:</strong><br />
+Falcon, Abu Dabi'deki Teknoloji İnovasyon Enstitüsü (TII) tarafından geliştirilen genişleyebilen büyük dil modelleri (LLM'ler) serisidir. Falcon modelleri, yüksek performans ve ölçeklenebilirlik sağlamak için çoklu sorgu dikkatini ve özel bir veri hattını kullanır. Falcon modelleri, çeşitli alanlarda ve görevlerde metin oluşturabilir.  </p>
+</li>
+<li>
+<p><strong>LLaMA:</strong><br />
+LLaMA, Meta'nın (eski adıyla Facebook) yayınladığı temel büyük dil modelleri (LLM'ler) serisinin kısaltmasıdır. LLaMA modelleri, Latin ve Kiril alfabesi olan 20 dilden büyük bir etiketsiz veri setinde eğitilmiştir. LLaMA modelleri, döner pozisyon gömme ve paralel hesaplama kullanarak verimliliği ve çok yönlülüğü artırır. LLaMA 2, oldukça yakın bir zamanda açık kaynak hale geldi.  </p>
+</li>
+<li>
+<p><strong>MPT:</strong><br />
+MPT, MosaicML tarafından geliştirilen büyük dil modelleri (LLM'ler) serisinin kısaltmasıdır. Makine öğrenme modelleri oluşturma ve dağıtma platformu olan MosaicML, MPT modellerini geliştirdi. MPT modelleri, ALiBi (Dikkatli Lineer Önyargılar) ve FlashAttention ile modifiye edilmiş bir transformer mimarisi kullanır. Bu sayede, bağlam uzunluk sınırlarını ortadan kaldırır ve hızı optimize eder. MPT modelleri, metin ve kod verilerinin karışımında eğitilmiştir ve çeşitli görevler için ince ayar yapılabilir.  </p>
+</li>
+<li>
+<p><strong>GPT-J:</strong><br />
+GPT-J, 2021'de EleutherAI tarafından geliştirilen açık kaynaklı bir büyük dil modeli (LLM)dir. Bir isteğe devam eden insan gibi metin üretmek üzere tasarlanmış bir generatif ön eğitimli transformer modelidir. 6 milyar parametreye sahiptir ve yoğun dikkat, döner pozisyon gömme ve paralel hesaplama kullanır. Çeşitli kaynaklardan ve alanlardan metin içeren Pile veri setinde eğitilmiştir.  </p>
+</li>
+<li>
+<p><strong>GPT-Neo:</strong><br />
+GPT-3'ün açık kaynaklı bir replikası olan ve çeşitli alanlarda ve görevlerde metin oluşturabilen 2.7 milyar parametreli bir modeldir. GPT-Neo, 2021'de EleutherAI tarafından geliştirilen açık kaynaklı bir büyük dil modeli (LLM)dir. GPT-2 ve GPT-3 tarzında bir model paralel modeli olan mesh-tensorflow kütüphanesini kullanır. Doğal dil anlama, doğal dil oluşturma ve konuşmacı AI gibi çeşitli alanlarda ve görevlerde metin oluşturabilir. İki versiyonu vardır: biri 1.3 milyar parametreli, diğeri 2.7 milyar parametreli. Her iki katmanda yerel dikkat kullanır ve pencere boyutu 256 belirtedir. Kitaplar, haberler, Wikipedia ve kod gibi 26 çeşitli kaynaktan metin içeren Pile veri setinde eğitilmiştir.  </p>
+</li>
+</ul>
+<p>Temel modellerin yanı sıra, Hugging Face, bu temel modellerin hemen hemen her biri için açık kaynaklı ince ayarlı modeller sunar. <a href="https://huggingface.co/models?other=text-generation-inference&amp;sort=trending">Buradan</a> bulabilirsiniz.  </p>
+<hr/>
+
+<h2 id="cevrimici-modeller">Çevrimiçi Modeller</h2>
+<div style="text-align:center; overflow:hidden; max-height:330px;">
+  <img src="../../resource/images/brandsonline.jpg" alt="Brands" style="width:60%; height:auto; object-fit:cover; object-position:center;">
+</div>
+<p>Yalnızca bir API üzerinden kullanılabilecek çevrimiçi modelleri listeleyeceğim. Bu, Bard veya Bing Chat'in bu listeye dahil olmayacağı anlamına gelir.  </p>
+<ul>
+<li>
+<p><strong>OpenAI:</strong> OpenAI, GPT-4, ChatGPT 3.5 Turbo ve DALL·E (metin açıklamalarından resimler oluşturan bir generatif model) ve OpenAI Whisper (sesi metne dönüştüren bir araç, STT dönüşümü için harika) gibi çeşitli ürünler ve hizmetler sunar. OpenAI API'si, kullanıcının sunucularla iletişim kurmak için kimlik bilgilerini veya API Anahtarını sağlaması şartıyla, LLM modlama amaçlarımız için kullanılabilir.  </p>
+</li>
+<li>
+<p><strong>MosaicML:</strong> MosaicML, generatif AI modellerinizi güvenli bir ortamda oluşturmanızı ve konuşlandırmanızı sağlayan bir platformdur. MosaicML, kutudan çıkar çıkmaz kullanılabilecek veya verilerinizde ince ayar yapılabilecek açık kaynaklı, ticari lisanslı LLM'ler olan MPT Foundation Series'i sunar. MosaicML Inference, LLM'leri güvenli bir şekilde konuşlandırmanıza ve 15 kata kadar maliyet tasarrufu yapmanıza olanak sağlayan bir hizmettir ve MosaicML Training, tek bir komutla kendi son teknoloji modellerinizi önceden eğitmenize veya ince ayar yapmanıza ve birden çok bulut arasında düzenlemenize olanak sağlayan bir hizmettir.  </p>
+</li>
+<li>
+<p><strong>DeepInfra:</strong> DeepInfra, çeşitli LLM'ler ve gömme modellere erişim sağlayan bir sunucusuz çıkarım hizmetidir. Llama 2, GPT-J, GPT-Neo ve Falcon modellerini API uç noktaları olarak kullanabilirsiniz.  </p>
+</li>
+<li>
+<p><strong>Replicate:</strong> Replicate, açık kaynaklı makine öğrenme modellerini bir bulut API'si ile çalıştırmanıza olanak sağlayan bir platformdur. Replicate, dil modelleri, video oluşturma ve düzenleme modelleri, süper çözünürlük modelleri, görüntü restorasyon modelleri, görüntüden metne modeller ve metinden görüntüye modeller dahil binlerce modeli paylaşan bir makine öğrenme meraklıları topluluğuna sahiptir. Replicate ayrıca, makine öğrenme modellerini standart, üretim için hazır bir konteynere paketlemenizi sağlayan açık kaynaklı bir araç olan Cog'u sunar. Replicate'de Llama2, GPT-J ve Falcon'u da çalıştırabilirsiniz.  </p>
+</li>
+</ul>
+<hr/>
+
+<h2 id="servis-modelleri">Servis Modelleri</h2>
+<div style="text-align:center; overflow:hidden; max-height:330px;">
+  <img src="../../resource/images/brandsservice.jpg" alt="Brands" style="width:60%; height:auto; object-fit:cover; object-position:center;">
+</div>
+<p>Sadece bildiğim veya tecrübe ettiğim servis modellerini listeleyeceğim, ancak bu kesinlikle tam bir liste değil. Bu listeyi genişletmek isterseniz, çekme isteği yapmaktan çekinmeyin.  </p>
+<ul>
+<li>
+<p><strong>Inworld AI</strong>:<br />
+Inworld AI, AI NPC'ler için önde gelen Karakter Motorudur. Oyunlarda ve sanal dünyalarda oyuncu olmayan karakterlere (NPC'ler) zeki diyalog yeteneği kazandırır, onları daha zeki ve insana benzeyen hale getirir ve kullanıcılarla etkileşim yeteneklerini artırır. Inworld'u kullanırken, kutudan çıkar çıkmaz LLM karakter desteği, birden çok gerçekçi sesle metinden konuşmaya, mikrofonla sohbeti dönüştürme için konuşmadan metne desteği, duygular ve bir eylem sistemi (modların interaktif hale getirilmesi için) alırsınız. Inworld ayrıca bunların tümünü, kullanıcıların kredi kartı bilgilerini bile vermeden kullanabilecekleri ücretsiz bir katmanda sunar. Ücretsiz katman, ayda 5.000 ücretsiz API etkileşimi sağlar, bu da herhangi bir mod için yeterli olur (deneyimime dayanarak). Ayrıca, kullanıcıların portalda belirli şeyleri konuşmak veya ayarlamak için hiçbir ekstra ücret ödemeden sınırsız stüdyo etkileşimi sunarlar. Belirli oyun motorları için birçok SDK'ları vardır, bu modderlar için süper yardımcı olmayabilir, ancak ayrıca bir Node.js SDK'ları ve kolayca kullanılabilen doğrudan uç nokta çağrıları da sağlarlar. Oyununuz bunu destekliyorsa, dudak senkronizasyonu verileri de sağlarlar. Sadece bu değil, ayrıca sesler için sorunsuz elevenlabs desteği de var, yani eğer elevenlabs'ta yüksek kaliteli sesleriniz varsa, kolayca kullanılabilirler.  </p>
+</li>
+<li>
+<p><strong>ChatFAI</strong>:<br />
+ChatFAI, kullanıcıların filmlerden, TV şovlarından, kitaplardan ve daha fazlasından favori karakterleriyle konuşmalarına olanak sağlayan bir AI destekli sohbet botu platformudur. Kullanıcı girişine yanıt oluşturmak için doğal dil işleme algoritmalarını kullanır. Özel karakter oluşturmayı desteklerler. Ayrıca bir ücretsiz planları da var; ancak, ücretsiz planları, gerçek mod kullanımı için (Eylül 2023 itibarıyla) kullanılamaz çünkü ayda yalnızca 250 mesaj sağlar ki bu oldukça sınırlıdır.  </p>
+</li>
+<li>
+<p><strong>character.ai</strong>:<br />
+character.ai, bilim kurgu hayalini gerçeğe dönüştürüyor: bilgisayarlarla açık uçlu konuşmalar ve işbirlikleri. Bir sohbet botu web uygulamasıdır ve gerçek insanlarınkine benzeyen metin yanıtlarını üretebilen ve doğal bir konuşma içinde etkileşime girebilen bir neural dil modeline sahiptir. Hayal gücü, beyin fırtınası ve dil öğrenme için kullanılabilir. Teknik olarak kayıt olunduğunda ücretsizdir ve mesaj sınırlaması gibi görünmüyor. c.ai+ modelini sunarlar, bu model daha hızlı yanıt süreleri ve öncelikli erişim sunar (çünkü bazı karakterler çok talep gördüğünde bekleme odası gerektirir). Ne yazık ki, resmi bir API sağlamıyorlar ve açık kaynaklı resmi olmayan bir sürümü kullanmanız gerekiyor, bu da her an bozulabilir ve bu da uzun vadeli destek modları için daha az uygun hale getirir. Herhangi bir TTS/SST sistemi yoktur.  </p>
+</li>
+<li>
+<p><strong>convai</strong>:<br />
+Convai, Inworld AI'ye oldukça benzer; ancak, Inworld'un sunduğu özelliklere sahip gibi görünmüyor. Şu anda, bir ücretsiz katman da sunuyorlar, ancak sınır herkes için yeterli olmayabilir, çünkü günlük 100 etkileşim kotası var. Her mesaj bir etkileşim olarak kabul edilir. Bu, birçok mod için belirli kullanımları sınırlayabilir. Inworld gibi SST/TTS sunarlar ve genel olarak convai'nin ses kalitesi daha iyidir. Inworld gibi belirli oyun motorlarına belirli eklentiler sağlarlar ve doğrudan karakter oluşturma uç noktası da sağlarlar (Inworld'da bekleyen bir özellik). Şu anda Nvidia ile ortaklık yapmaktadırlar ki bu önemlidir.  </p>
+</li>
+<li>
+<p><strong>Kamoto.AI</strong>:<br />
+Kamoto.AI, ünlüleri, etkileyicileri ve kullanıcıları, özelleştirilmiş AI Karakterler oluşturmak, eğitmek ve gelir elde etmek için güçlendirir. Ne yazık ki, herhangi bir API sağlamıyor gibi görünüyorlar, bu yüzden muhtemelen kendi resmi olmayan paketinizi yazmanız gerekecek ki bu genellikle çok fazla iş gerektirir.  </p>
+</li>
+<li>
+<p><strong>NPCx</strong>:<br />
+NPCx, bilgisayar mühendisleri, veri bilimcileri, sanatçılar ve animatörlerden oluşan küresel bir ekip olan ve hikaye anlatıcılarına destek olmak için sonraki nesil Yapay Zeka (AI) teknolojisini kullanır. Video oyunlarındaki Oyuncu Olmayan Karakterlere (NPC'ler) odaklanırlar ve daha zengin, daha çeşitli ve hayat gibi 3D deneyimler sunmayı amaçlarlar, bunu daha kısa sürede ve daha düşük maliyetle yaparlar. Bunun dışında çok fazla bilgi yok. Kamuya açık kaydı yok ve sizinle iletişime geçmeleri gerekiyor. Eylül 2023 itibarıyla bu durumda tam olarak kullanılabilir değiller ancak gelecek vaat ediyorlar.  </p>
+</li>
+</ul>
+<hr/>
+
+<h2 id="neden-inworld-mantkl">Neden Inworld Mantıklı?</h2>
+<p>Bir mod sahibi olarak deneyimlerime dayanarak, birçok insanın uzun kurulum adımlarını okumak için zamanı veya eğilimi olmadığını rahatlıkla söyleyebilirim. Birçok kişi tüm açıklamayı görmezden gelir ve modu doğrudan yüklemeye çalışır. Böyle bir durumda, son istediğiniz şey, kullanıcıların tamamlamayabileceği veya tamamladıktan sonra donanımlarının yeterince güçlü olmadığını fark ettiği çok karmaşık kurulum adımları eklemektir. Daha fazla adım == daha fazla hata, yani mod sahibi için daha fazla iş demektir. Yüksek bulut bilişim ücretlerini ödemeye niyetim olmadığından, yerel modeller benim için bir seçenek değil. Bir sonraki seçenek çevrimiçi modellerdir, ancak bunlar daha iyi yanıtlar için modellerin önceden eğitilmesini gerektirir. Çoğunlukla geliştiriciler için tasarlandıklarından, kayıt/ayar süreci ortalama oyuncular için cazip değildir. Bu koşullar altında, servis modelleri en mantıklı seçim haline gelir.  </p>
+<p>Listeden, Inworld ücretsiz katmanı ve özellik eşleştirme ile öne çıkıyor. Burada önyargılı olduğumu itiraf etmeliyim, çünkü Inworld'u birçok modumda kullandım ve bana birkaç ay boyunca ücretsiz bir geliştirici hesabı verdiler. Ancak, modlarım binlerce kişi tarafından indirildi ve oynandı ve çoğunun bunu tamamen ücretsiz olarak, hiçbir yerde kredi kartı bilgilerini eklemek zorunda kalmadan, keyif aldığını kesin olarak biliyorum. Inworld'un bu esnekliği oyunculara sunduğunu bilmek, ilerlemeyi Inworld ile seçmemin ana nedenlerinden biridir. Bir sonraki bölümde, Inworld'u nasıl kullanacağınıza dair detayları konuşacağız.  </p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Başa dön
+          </button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      &copy; <span id='year'></span><script>document.getElementById("year").innerText = new Date().getFullYear() </script> <a href="https://www.youtube.com/@Bloctheworker"  target="_blank" rel="noopener">BlocTheWorker</a>
+
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.sections", "toc.integrate", "navigation.top", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation", "content.code.copy"], "search": "../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Kopyaland\u0131", "clipboard.copy": "Kopyala", "search.result.more.one": "Bu sayfada 1 tane daha", "search.result.more.other": "Bu sayfada # tane daha", "search.result.none": "E\u015fle\u015fen dok\u00fcman bulunamad\u0131", "search.result.one": "1 dok\u00fcman bulundu", "search.result.other": "# dok\u00fcman bulundu", "search.result.placeholder": "Aramaya ba\u015flamak i\u00e7in yaz\u0131n", "search.result.term.missing": "Eksik", "select.version": "Versiyon se\u00e7"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.220ee61c.min.js"></script>
+      
+    
+  </body>
+</html>

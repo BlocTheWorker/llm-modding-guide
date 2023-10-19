@@ -1,0 +1,643 @@
+
+<!doctype html>
+<html lang="tr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://bloctheworker.github.io/llm-modding-guide/tr/101/">
+      
+      
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../201/">
+      
+      <link rel="icon" href="../../resource/icon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.1.21">
+    
+    
+      
+        <title>LLM Modlama 101 - LLM Modding Guide</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.eebd395e.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ecc896b0.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="indigo">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#llm-modlama-101" class="md-skip">
+          Ana içeriğe geç
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Başlık">
+    <a href="../" title="LLM Modding Guide" class="md-header__button md-logo" aria-label="LLM Modding Guide" data-md-component="logo">
+      
+  <img src="../../resource/icon.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            LLM Modding Guide
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              LLM Modlama 101
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+          
+            
+            
+            
+            <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+            
+              <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+              </label>
+            
+          
+            
+            
+            
+            <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+            
+              <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+              </label>
+            
+          
+        </form>
+      
+    
+    
+      <div class="md-header__option">
+        <div class="md-select">
+          
+          <button class="md-header__button md-icon" aria-label="Dil seç">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.52 17.52 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04M18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12m-2.62 7 1.62-4.33L19.12 17h-3.24Z"/></svg>
+          </button>
+          <div class="md-select__inner">
+            <ul class="md-select__list">
+              
+                <li class="md-select__item">
+                  <a href="../../101/" hreflang="en" class="md-select__link">
+                    English
+                  </a>
+                </li>
+              
+                <li class="md-select__item">
+                  <a href="./" hreflang="tr" class="md-select__link">
+                    Türkçe
+                  </a>
+                </li>
+              
+                <li class="md-select__item">
+                  <a href="../../de/101/" hreflang="de" class="md-select__link">
+                    Deutsch
+                  </a>
+                </li>
+              
+            </ul>
+          </div>
+        </div>
+      </div>
+    
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Sekmeler" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../" class="md-tabs__link">
+      Giriş
+    </a>
+  </li>
+
+      
+        
+  
+  
+    
+  
+
+
+  <li class="md-tabs__item">
+    <a href="./" class="md-tabs__link md-tabs__link--active">
+      LLM Modlama 101
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../201/" class="md-tabs__link">
+      LLM Modlama 201
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../301/" class="md-tabs__link">
+      LLM Modlama 301
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../401/" class="md-tabs__link">
+      LLM Modlama 401
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigasyon" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../" title="LLM Modding Guide" class="md-nav__button md-logo" aria-label="LLM Modding Guide" data-md-component="logo">
+      
+  <img src="../../resource/icon.png" alt="logo">
+
+    </a>
+    LLM Modding Guide
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        Giriş
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          LLM Modlama 101
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        LLM Modlama 101
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="İçindekiler">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      İçindekiler
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#giris" class="md-nav__link">
+    Giriş
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#baz-bilgiler" class="md-nav__link">
+    Bazı Bilgiler
+  </a>
+  
+    <nav class="md-nav" aria-label="Bazı Bilgiler">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#llm-nedir" class="md-nav__link">
+    LLM Nedir?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gpt-nedir" class="md-nav__link">
+    GPT Nedir?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gpt-neden-bu-kadar-cok-dikkat-cekiyor" class="md-nav__link">
+    GPT Neden Bu Kadar Çok Dikkat Çekiyor?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gpt-llmler-yerine-mi-kullanlyor" class="md-nav__link">
+    GPT, LLM'ler Yerine mi Kullanılıyor?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bu-rehber-neden-cogunlukla-llmlere-odaklanyor" class="md-nav__link">
+    Bu Rehber Neden Çoğunlukla LLM'lere Odaklanıyor?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gpt-veya-herhangi-bir-llm-kullanmadan-sinir-aglarn-nasl-kullanabilirim" class="md-nav__link">
+    GPT veya Herhangi Bir LLM Kullanmadan Sinir Ağlarını Nasıl Kullanabilirim?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#karakter-motoru-nedir" class="md-nav__link">
+    Karakter Motoru Nedir?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#llmlerin-en-buyuk-zorluklar" class="md-nav__link">
+    LLM'lerin En Büyük Zorlukları
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#veri-ve-bilgi-nedeniyle-kendi-sinir-agnz-egitmenin-zor-olmas" class="md-nav__link">
+    Veri ve Bilgi Nedeniyle Kendi Sinir Ağınızı Eğitmenin Zor Olması
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#llmleri-kullanabilir-miyim" class="md-nav__link">
+    LLMleri Kullanabilir Miyim?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#baslamadan-emin-olun" class="md-nav__link">
+    Başlamadan Emin Olun
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#temeller" class="md-nav__link">
+    Temeller
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../201/" class="md-nav__link">
+        LLM Modlama 201
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../301/" class="md-nav__link">
+        LLM Modlama 301
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../401/" class="md-nav__link">
+        LLM Modlama 401
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="llm-modlama-101">LLM Modlama 101</h1>
+<div style="text-align:center; overflow:hidden; max-height:330px;">  
+  <img src="../../resource/images/genimg3.jpeg" alt="Kapak Resmi" style="width:60%; height:auto; object-fit:cover; object-position:center;">
+</div>
+
+<h2 id="giris">Giriş</h2>
+<p>Bu bölümde, LLM ile modlama temellerinden bahsedeceğim. Bazı kısımlar çok açık olabilir, ancak bu daha genel bir rehber olduğu için, aklıma gelen hemen hemen her şeyi belirtmeliyim diye düşünüyorum. "Ee herhalde" kısımları için okumayı atlayabilir ve devam edebilirsiniz.</p>
+<p>LLM ile modlama, oyunlarınıza daha gerçekçi konuşmalar ve unutulmaz anılar eklemenin mükemmel bir yoludur. LLM'ler, diyaloglar, açıklamalar ve hatta tüm hikayeler oluşturmak için kullanılabilir. Ayrıca yeni karakterler, konumlar ve görevler oluşturmak için de kullanılabilirler.</p>
+<p>İşte LLM'lerle modlamayı kullanmanın bazı avantajları:</p>
+<ul>
+<li>LLM'ler, geleneksel betikleme yöntemlerinden daha gerçekçi ve etkileyici diyaloglar oluşturabilir.</li>
+<li>LLM'ler, oyuncuların seveceği karmaşık ve unutulmaz karakterler yaratabilir.</li>
+<li>LLM'ler, oyununuza yeni içerikler, hikayeler, görevler ve konumlar oluşturmak için kullanılabilir.</li>
+<li>LLM'ler, oyununuzun yazılı içeriğinin genel kalitesini artırmak için kullanılabilir.</li>
+</ul>
+<h2 id="baz-bilgiler">Bazı Bilgiler</h2>
+<h3 id="llm-nedir">LLM Nedir?</h3>
+<p>LLM, yani başka bir deyişle, Büyük Dil Modelleri, büyük bir metin ve kod veri setinde eğitilmiş modellerdir.</p>
+<h3 id="gpt-nedir">GPT Nedir?</h3>
+<p>GPT, Generative Pre-trained Transformer'ın kısaltmasıdır. GPT, bir LLM türüdür. GPT, metin oluşturmak, dilleri çevirmek, farklı türlerde yaratıcı içerik yazmak ve bilgilendirici bir şekilde sorularınıza yanıt vermek için kullanılabilir.</p>
+<h3 id="gpt-neden-bu-kadar-cok-dikkat-cekiyor">GPT Neden Bu Kadar Çok Dikkat Çekiyor?</h3>
+<p>GPT, şimdiye kadar yaratılan en güçlü ve çok yönlü dil modellerinden biri olduğu için bu kadar çok dikkat çekmektedir. Gerçekçi ve etkileyici diyaloglar oluşturmak, karmaşık ve unutulmaz karakterler oluşturmak ve oyunlar için yeni içerikler yazmak dahil olmak üzere çeşitli görevler için kullanılabilir.</p>
+<h3 id="gpt-llmler-yerine-mi-kullanlyor">GPT, LLM'ler Yerine mi Kullanılıyor?</h3>
+<p>GPT, bir LLM türü olduğu için, LLM'ler yerine kullanılmaz. Ancak, GPT genellikle diğer LLM'lerden daha fazla tercih edilir çünkü OpenAI'nin (GPT 3.5+) kamuya açık bir API'si aracılığıyla kullanılması çok kolaydır.</p>
+<h3 id="bu-rehber-neden-cogunlukla-llmlere-odaklanyor">Bu Rehber Neden Çoğunlukla LLM'lere Odaklanıyor?</h3>
+<p>Bu rehber çoğunlukla LLM'lere odaklanıyor çünkü LLM modlaması günümüzde oldukça yeni bir konu ve modladığınız oyun ne olursa olsun takip etmeniz gereken bazı ortak ana noktaları paylaşıyor.</p>
+<h3 id="gpt-veya-herhangi-bir-llm-kullanmadan-sinir-aglarn-nasl-kullanabilirim">GPT veya Herhangi Bir LLM Kullanmadan Sinir Ağlarını Nasıl Kullanabilirim?</h3>
+<p>GPT veya herhangi bir LLM kullanmadan sinir ağlarını kullanmanın birçok yolu vardır. Örneğin, sinir ağlarını resimleri sınıflandırmak, müzik oluşturmak veya dilleri çevirmek için kullanabilirsiniz.
+Bir sinir ağı kullanmak için, onu bir veri seti üzerinde eğitmeniz gerekecektir. Resimleri sınıflandırmak için bir sinir ağı kullanmak istiyorsanız, onu bir resim veri setinde eğitmeniz gerekecektir. Sinir ağı eğitildikten sonra, onu yeni veriler üzerinde tahminler yapmak için kullanabilirsiniz. Örneğin, bir sinir ağı resimleri sınıflandırmak için eğittiyse, daha önce hiç görmediğiniz yeni resimleri sınıflandırmak için onu kullanabilirsiniz.</p>
+<h3 id="karakter-motoru-nedir">Karakter Motoru Nedir?</h3>
+<p>Karakter motorları, geliştiricilere yapay zeka destekli NPC'ler oluşturmak için gereken zamanı, çabayı ve kaynakları büyük ölçüde azaltmalarına yardımcı olur. Temelde, generatif yapay zeka karakter oluşturma için bir oyun motoru gibi işlev görür.</p>
+<h3 id="llmlerin-en-buyuk-zorluklar">LLM'lerin En Büyük Zorlukları</h3>
+<p>LLM'ler, birkaç önemli zorlukla karşılaşır, bunlar:</p>
+<ul>
+<li><strong>Önyargı:</strong> LLM'ler, üzerinde eğitildikleri verilerde bulunan önyargıları yansıtabilir.</li>
+<li><strong>Güvenlik:</strong> LLM'ler, nefret söylemi veya yanıltıcı bilgiler gibi zararlı içerikler oluşturmak için kullanılabilir.</li>
+<li><strong>Maliyet:</strong> LLM'leri eğitmek ve konuşlandırmak pahalı olabilir.</li>
+</ul>
+<h3 id="veri-ve-bilgi-nedeniyle-kendi-sinir-agnz-egitmenin-zor-olmas">Veri ve Bilgi Nedeniyle Kendi Sinir Ağınızı Eğitmenin Zor Olması</h3>
+<p>Kendi sinir ağınızı eğitmenin zor olmasının nedeni, veri ve bilgi gereksinimleridir. Sinir ağları, büyük miktarda veri üzerinde eğitilmelidir ve etkili eğitim için yeterli veri toplamak zor ve pahalı olabilir.</p>
+<p>Ayrıca, kendi sinir ağınızı başarıyla eğitmek için makine öğrenmesi ve sinir ağları hakkında bilgi gereklidir. Bu bilgiye sahip değilseniz, bir sinir ağı eğitmek zorlu bir görev olabilir.</p>
+<h2 id="llmleri-kullanabilir-miyim">LLMleri Kullanabilir Miyim?</h2>
+<p><pre class="mermaid"><code>graph LR
+  A[Başlangıç] --&gt; B{Oyun herhangi bir türde modlamayı destekliyor mu?};
+  B --&gt;|Evet| C[Herhangi bir kodlama içeren modları oluşturmayı biliyor musunuz?];
+  C --&gt;|Hayır| E;
+  C --&gt;|Evet| D[Oyundaki modlama, soket bağlantısı veya HTTP çağrılarına izin veriyor mu?];
+  D --&gt;|Hayır| E;
+  D --&gt;|Evet| F[LLM'leri kullanabilirsiniz];
+  B ----&gt;|Hayır| E[LLM'leri kullanamazsınız];</code></pre>
+LLM ile modlama, her oyun için doğru olmayabilir. LLM ile oyununuzu modlamaya karar vermeden önce dikkate almanız gereken birkaç şey şunlardır:</p>
+<ul>
+<li><strong>Oyununuz modlanabilir mi?</strong> Tüm oyunlar modlanabilir değildir. Bazı oyunlarda mod desteği yerleşik olarak bulunurken, diğerleri üçüncü taraf araçları gerektirir. Oyununuz modlanabilir değilse, onu LLM ile modlamak için kullanamazsınız.</li>
+<li><strong>Oyununuzun bir modlama topluluğu var mı?</strong> Tüm oyunların bir modlama topluluğu yoktur ve hatta varsa bile, topluluk aktif veya destekleyici olmayabilir. Oyununuz için bir modlama topluluğu yoksa, sorunlarla karşılaştığınızda yardım ve desteği bulmak daha zor olacaktır. Özellikle o oyun için deneyimli bir modder değilseniz.</li>
+<li><strong>Hedefleriniz neler?</strong> Oyununuzu LLM ile modlayarak neyi başarmayı umuyorsunuz? Diyalogları iyileştirmek, yeni karakterler eklemek veya yeni içerik oluşturmak mı istiyorsunuz? Hedeflerinizi bildiğinizde, onları gerçekleştirmek için LLM'yi en iyi şekilde nasıl kullanabileceğinizi düşünmeye başlayabilirsiniz.</li>
+</ul>
+<h2 id="baslamadan-emin-olun">Başlamadan Emin Olun</h2>
+<p>Oyununuzu LLM ile modlamaya başlamadan önce, gerekli tüm araç ve kaynaklara sahip olduğunuzdan emin olmak önemlidir. Kontrol etmeniz gereken birkaç şey şunlar:</p>
+<ul>
+<li><strong>En son LLM sürümüne sahip olduğunuzdan emin olun.</strong> LLM sürekli olarak güncellenmektedir, bu yüzden en son sürüme sahip olduğunuzdan emin olmanız önemlidir. Eğer çevrimiçi modelleri kullanıyorsanız, bu genellikle sizin kontrolünüzde olmaz - ki bu, hedefinize bağlı olarak iyi veya kötü olabilir.</li>
+<li><strong>LLM'yi nasıl kullanacağınızı iyi bir şekilde anladığınızdan emin olun.</strong> Çevrimiçi olarak kullanabileceğiniz birçok öğretici ve kaynak vardır ki bu, LLM'yi nasıl kullanacağınızı öğrenmenize yardımcı olabilir. Kendi sunucunuzu bazı LLM sürümü (Llama vb.) ile oluşturuyorsanız, bunun nasıl çalıştığını bilmeli ve API'nizi buna göre ayarlamalısınız. Her iki durumda da belli bir uzmanlık gereklidir.</li>
+<li><strong>Oyununuz için modlama araçlarını iyi bir şekilde anladığınızdan emin olun.</strong> Her oyunun kendi modlama araçları ve süreçleri vardır, bu yüzden onları nasıl kullanacağınızı anlamanız önemlidir. Eğer bunu nasıl kullanacağınızı bilmiyorsanız, ilk hedefinizin bunu kontrol etmek ve öğrenmek olması gerektiğidir. Hatta oyun X'te deneyimli bir modder bile olsanız, bu, oyun Y'de de harika olacağınızı garanti etmez.</li>
+</ul>
+<h2 id="temeller">Temeller</h2>
+<p>LLM modlamaya başlamak için, birkaç temel şeyi bilmelisiniz:</p>
+<ul>
+<li><strong>İstek becerileri:</strong> LLM, büyük bir metin ve kod veri setinde eğitilmiştir, ancak yine de metin oluşturmak için istekte bulunması gerekmektedir. En iyi sonuçları elde etmek için etkili istekler yazmayı öğrenmeniz gerekecektir. Bu gerekliliği belirli hizmetler için (Örneğin Inworld) ortadan kaldırabilirsiniz ancak kendi sistemlerinizi kullanmayı planlıyorsanız, bu bir zorunluluktur.</li>
+<li><strong>Kodlama becerileri:</strong> Bazı LLM modlamaları, bazı kodlama becerilerini gerektirecektir. Örneğin, LLM'yi oyununuza entegre etmek veya özel istekler oluşturmak için kod yazmanız gerekebilir.</li>
+</ul>
+<p>LLM ve kodlama hakkında temel bir anlayışa sahip olduğunuzda, oyununuzu modlamayı denemeye başlayabilirsiniz. Oyununuzu modlamak için LLM'yi kullanmanın birçok yolu vardır, bu yüzden yaratıcı olun ve eğlenin!</p>
+<p>İşte LLM modlaması için bazı ek ipuçları:</p>
+<ul>
+<li><strong>Küçükten başlayın.</strong> Tüm oyununuzu bir anda modlamayı denemeyin. Oyununuzun küçük bir kısmını, örneğin tek bir karakteri veya görevi modlamaya başlayın. Bu, ipuçlarını öğrenmenize ve olası herhangi bir sorunu belirlemenize yardımcı olacaktır.</li>
+<li><strong>Sık sık test edin.</strong> Oyununuza bazı değişiklikler yaptıktan sonra, onları iyice test ettiğinizden emin olun. Bu, oluşturmuş olabileceğiniz herhangi bir hatayı veya sorunu belirlemenize yardımcı olacaktır.</li>
+<li><strong>Başkalarından geri bildirim alın.</strong> Değişikliklerinizi test ettikten sonra, onları başkalarıyla paylaşın ve geri bildirim alın. Bu, modunuzun nerede geliştirilebileceğini belirlemenize yardımcı olacaktır.</li>
+</ul>
+<p>LLM modlaması çok eğlenceli olabilir ve oyunlarınızı geliştirmenin harika bir yoludur. Biraz çaba ile, oyunlarınızı kendiniz ve diğerleri için daha keyifli hale getirecek modlar oluşturabilirsiniz.</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Başa dön
+          </button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      &copy; <span id='year'></span><script>document.getElementById("year").innerText = new Date().getFullYear() </script> <a href="https://www.youtube.com/@Bloctheworker"  target="_blank" rel="noopener">BlocTheWorker</a>
+
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.sections", "toc.integrate", "navigation.top", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation", "content.code.copy"], "search": "../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Kopyaland\u0131", "clipboard.copy": "Kopyala", "search.result.more.one": "Bu sayfada 1 tane daha", "search.result.more.other": "Bu sayfada # tane daha", "search.result.none": "E\u015fle\u015fen dok\u00fcman bulunamad\u0131", "search.result.one": "1 dok\u00fcman bulundu", "search.result.other": "# dok\u00fcman bulundu", "search.result.placeholder": "Aramaya ba\u015flamak i\u00e7in yaz\u0131n", "search.result.term.missing": "Eksik", "select.version": "Versiyon se\u00e7"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.220ee61c.min.js"></script>
+      
+    
+  </body>
+</html>

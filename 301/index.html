@@ -1,0 +1,601 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://bloctheworker.github.io/llm-modding-guide/301/">
+      
+      
+        <link rel="prev" href="../201/">
+      
+      
+        <link rel="next" href="../401/">
+      
+      <link rel="icon" href="../resource/icon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.1.21">
+    
+    
+      
+        <title>LLM Modding 301 - LLM Modding Guide</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.eebd395e.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ecc896b0.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="indigo">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#llm-modding-301" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="LLM Modding Guide" class="md-header__button md-logo" aria-label="LLM Modding Guide" data-md-component="logo">
+      
+  <img src="../resource/icon.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            LLM Modding Guide
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              LLM Modding 301
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+          
+            
+            
+            
+            <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+            
+              <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+              </label>
+            
+          
+            
+            
+            
+            <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+            
+              <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+              </label>
+            
+          
+        </form>
+      
+    
+    
+      <div class="md-header__option">
+        <div class="md-select">
+          
+          <button class="md-header__button md-icon" aria-label="Select language">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.52 17.52 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04M18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12m-2.62 7 1.62-4.33L19.12 17h-3.24Z"/></svg>
+          </button>
+          <div class="md-select__inner">
+            <ul class="md-select__list">
+              
+                <li class="md-select__item">
+                  <a href="./" hreflang="en" class="md-select__link">
+                    English
+                  </a>
+                </li>
+              
+                <li class="md-select__item">
+                  <a href="../tr/301/" hreflang="tr" class="md-select__link">
+                    Türkçe
+                  </a>
+                </li>
+              
+                <li class="md-select__item">
+                  <a href="../de/301/" hreflang="de" class="md-select__link">
+                    Deutsch
+                  </a>
+                </li>
+              
+            </ul>
+          </div>
+        </div>
+      </div>
+    
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href=".." class="md-tabs__link">
+      Intro
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../101/" class="md-tabs__link">
+      LLM Modding 101
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../201/" class="md-tabs__link">
+      LLM Modding 201
+    </a>
+  </li>
+
+      
+        
+  
+  
+    
+  
+
+
+  <li class="md-tabs__item">
+    <a href="./" class="md-tabs__link md-tabs__link--active">
+      LLM Modding 301
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../401/" class="md-tabs__link">
+      LLM Modding 401
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="LLM Modding Guide" class="md-nav__button md-logo" aria-label="LLM Modding Guide" data-md-component="logo">
+      
+  <img src="../resource/icon.png" alt="logo">
+
+    </a>
+    LLM Modding Guide
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Intro
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../101/" class="md-nav__link">
+        LLM Modding 101
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../201/" class="md-nav__link">
+        LLM Modding 201
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          LLM Modding 301
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        LLM Modding 301
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#selecting-your-model-or-service" class="md-nav__link">
+    Selecting Your Model or Service
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#possible-choices-as-of-october-2023" class="md-nav__link">
+    Possible Choices as of October 2023
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#local-models" class="md-nav__link">
+    Local Models
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#online-models" class="md-nav__link">
+    Online Models
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#service-models" class="md-nav__link">
+    Service Models
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-inworld-makes-sense" class="md-nav__link">
+    Why Inworld Makes Sense?
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../401/" class="md-nav__link">
+        LLM Modding 401
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="llm-modding-301">LLM Modding 301</h1>
+<div style="text-align:center; overflow:hidden; max-height:300px;">
+  <img src="../resource/images/genimg.jpeg" alt="Cover Image" style="width:60%; height:auto; object-fit:cover; object-position:center;">
+</div>
+
+<h2 id="selecting-your-model-or-service">Selecting Your Model or Service</h2>
+<p>When it comes to selecting your model or service, we have multiple options nowadays. Moreover, after the completion of this document, more options will likely appear, so I suggest using this list as a snapshot of today rather than a fully up-to-date list. If you are unsure about what service or online models are, please visit <a href="https://bloctheworker.github.io/llm-modding-guide/201">LLM Modding 201</a> to get a gist of it.</p>
+<hr/>
+
+<h2 id="possible-choices-as-of-october-2023">Possible Choices as of October 2023</h2>
+<h2 id="local-models">Local Models</h2>
+<div style="text-align:center; overflow:hidden; max-height:330px;">
+  <img src="../resource/images/brands.jpg" alt="Brands" style="width:60%; height:auto; object-fit:cover; object-position:center;">
+</div>
+<p>There are A LOT of local models, mostly derived from base models with fine-tuning. Here, I will list the primary base models:</p>
+<ul>
+<li>
+<p><strong>Falcon:</strong>
+Falcon is a series of generative large language models (LLMs) developed by the Technology Innovation Institute (TII) in Abu Dhabi. Falcon models use multiquery attention and a custom data pipeline to achieve high performance and scalability. Falcon models can generate text across various domains and tasks.</p>
+</li>
+<li>
+<p><strong>LLaMA:</strong>
+LLaMA is an acronym for Large Language Model Meta AI, a series of foundational large language models (LLMs) released by Meta (formerly Facebook). LLaMA models are trained on a large set of unlabeled data from 20 languages with Latin and Cyrillic alphabets. LLaMA models use rotary position embeddings and parallel computation to improve efficiency and versatility. LLaMA 2 became open-source quite recently.</p>
+</li>
+<li>
+<p><strong>MPT:</strong>
+MPT is an acronym for MosaicML Pretrained Transformer, a series of large language models (LLMs) developed by MosaicML, a platform for building and deploying machine learning models. MPT models use a modified transformer architecture with ALiBi (Attention with Linear Biases) and FlashAttention to eliminate context length limits and optimize speed. MPT models are trained on a mix of text and code data and can be fine-tuned for various tasks.</p>
+</li>
+<li>
+<p><strong>GPT-J:</strong>
+GPT-J is an open-source large language model (LLM) developed by EleutherAI in 2021. It is a generative pre-trained transformer model designed to produce human-like text that continues from a prompt. It has 6 billion parameters and uses dense attention, rotary position embeddings, and parallel computation. It was trained on the Pile dataset, which contains text from various sources and domains.</p>
+</li>
+<li>
+<p><strong>GPT-Neo:</strong>
+An open-source replication of GPT-3 with 2.7 billion parameters that can generate text across various domains and tasks. GPT-Neo is an open-source large language model (LLM) developed by EleutherAI in 2021. It is a model parallel GPT-2 and GPT-3-style model that uses the mesh-tensorflow library. It can generate text across various domains and tasks, such as natural language understanding, natural language generation, and conversational AI. It has two versions: one with 1.3 billion parameters and another with 2.7 billion parameters. It uses local attention in every other layer with a window size of 256 tokens. It was trained on the Pile dataset, which contains text from 26 diverse sources, such as books, news, Wikipedia, and code.</p>
+</li>
+</ul>
+<p>Apart from these base models, Hugging Face hosts a plethora of open-source fine-tuned models for almost each of these base models. You can find them <a href="https://huggingface.co/models?other=text-generation-inference&amp;sort=trending">here</a>.</p>
+<hr/>
+
+<h2 id="online-models">Online Models</h2>
+<div style="text-align:center; overflow:hidden; max-height:330px;">
+  <img src="../resource/images/brandsonline.jpg" alt="Brands" style="width:60%; height:auto; object-fit:cover; object-position:center;">
+</div>
+<p>I will only list online models that can be used via an API. This means Bard or Bing Chat won't be part of this list.</p>
+<ul>
+<li>
+<p><strong>OpenAI:</strong> OpenAI offers a variety of products and services, such as GPT-4, ChatGPT 3.5 Turbo, and other tools like DALL·E, a generative model that creates images from text descriptions, and OpenAI Whisper, which transcribes audio into text (great for STT transformation). The OpenAI API can be used for our LLM modding purposes, provided the user provides their credentials or API Key to communicate with the servers.</p>
+</li>
+<li>
+<p><strong>MosaicML:</strong> MosaicML is a platform for building and deploying generative AI models on your data within your secure environment. MosaicML offers the MPT Foundation Series, a series of open-source, commercially-licensed LLMs that can be used out of the box or fine-tuned on your data. MosaicML Inference is a service that allows you to securely deploy LLMs for up to 15x cost savings, and MosaicML Training is a service that enables you to pretrain or finetune your own state-of-the-art models with a single command and orchestrate across multiple clouds.</p>
+</li>
+<li>
+<p><strong>DeepInfra:</strong> DeepInfra is a serverless inference service that provides access to a variety of LLMs and embeddings models. You can use Llama 2, GPT-J, GPT-Neo, and Falcon models there as API endpoints.</p>
+</li>
+<li>
+<p><strong>Replicate:</strong> Replicate is a platform that lets you run open-source machine learning models with a cloud API. Replicate has a community of machine learning enthusiasts who have shared thousands of models, including language models, video creation and editing models, super resolution models, image restoration models, image-to-text models, and text-to-image models. Replicate also offers Cog, an open-source tool that lets you package machine learning models in a standard, production-ready container. You can run Llama2, GPT-J, and Falcon in Replicate as well.</p>
+</li>
+</ul>
+<hr/>
+
+<h2 id="service-models">Service Models</h2>
+<div style="text-align:center; overflow:hidden; max-height:330px;">
+  <img src="../resource/images/brandsservice.jpg" alt="Brands" style="width:60%; height:auto; object-fit:cover; object-position:center;">
+</div>
+<p>I will list only the service models that I know, whether by name or by experience, but this is by no means a full list. Feel free to make a pull request if you want to extend this list.</p>
+<ul>
+<li>
+<p><strong><a href="http://inworld.ai?utm_campaign=bloc-modding-guide">Inworld AI</a></strong>:
+Inworld AI is the leading Character Engine for AI NPCs. It empowers non-player characters (NPCs) in games and virtual worlds with intelligent dialogue, making them more intelligent and humanized, and increasing their ability to interact with users. When you use Inworld, out-of-the-box you get LLM character support, text-to-speech with multiple realistic voices, speech-to-text support for microphone transcribe conversation, emotions, and an action system (for making mods interactive). Inworld also offers all these for free in their free tier, which any user can use without even providing credit card information. The free tier gives 5,000 free API interactions per month, which is enough for any mod (based on my experience). They also offer unlimited in-studio interaction, allowing users to talk or adjust certain things on their portal without paying anything extra. They have multiple SDKs for certain game engines, which may not be super helpful for modders, but they also have a Node.js SDK and direct endpoint calls that can be utilized easily. They also provide lipsync data if your game supports it. Not only that, but they also have seamless elevenlabs support for the voices, in case you have high-quality voices on elevenlabs, they can be used easily.</p>
+</li>
+<li>
+<p><strong><a href="https://chatfai.com/">ChatFAI</a></strong>:
+ChatFAI is an AI-powered chatbot platform that allows users to engage in conversations with their favorite characters from movies, TV shows, books, and more. It uses natural language processing algorithms to generate responses to user input. They support custom character generation. They also have a free plan; however, their free plan is not usable for actual mod usage (as of September 2023) because it provides only 250 messages per month, which is quite limited.</p>
+</li>
+<li>
+<p><strong><a href="character.ai">character.ai</a></strong>:
+character.ai is a company that brings to life the science-fiction dream of open-ended conversations and collaborations with computers. It is a chatbot web application with a neural language model that can produce text responses that sound like those of real people and engage in natural conversation. It can be used for imagination, brainstorming, and language learning. It is technically free upon sign-up and doesn't seem to have a message limit. They provide the c.ai+ model, which offers faster response times and priority access (because some characters require a waiting room if they are too high in demand). Unfortunately, they don't provide an official API, and you need to use an open-source unofficial version, which can break at any time, making it less suitable for long-term support mods. They don't have any TTS/SST system.</p>
+</li>
+<li>
+<p><strong><a href="https://www.convai.com/">convai</a></strong>:
+Convai is really similar to Inworld AI; however, they don't seem to have the same features as Inworld does. Currently, they offer a free tier as well, but the limit might not be enough for everyone, as it's a per-day 100 interaction quota. Each message is considered one interaction. This can limit certain usages for many mods. They also provide SST/TTS like Inworld, and convai seems to have better voice quality overall. They also provide certain plugins to game engines like Inworld, and they provide a direct character creation endpoint as well (which is a pending feature on Inworld). They are currently partnered with Nvidia, which is important to note.</p>
+</li>
+<li>
+<p><strong><a href="https://www.kamoto.ai/">Kamoto.AI</a></strong>:
+Kamoto.AI empowers celebrities, influencers, and users to create, train, and monetize bespoke AI Characters. Unfortunately, they don't seem to be providing any API, so you probably need to write your own unofficial package, which is often a ton of work.</p>
+</li>
+<li>
+<p><strong><a href="https://npcx.ai/">NPCx</a></strong>:
+NPCx is a global team of computer engineers, data scientists, artists, and animators using next-generation Artificial Intelligence (AI) technology to support the digital storytellers of our time. They focus on Non-Player Characters (NPCs) in video games and aim to provide richer, more diverse, and lifelike 3D experiences at a fraction of the time and cost. Not much information is available aside from this. They don't have public sign-up and require you to contact them. Not exactly usable in this instance as of September 2023 but looks promising.</p>
+</li>
+</ul>
+<hr/>
+
+<h2 id="why-inworld-makes-sense">Why Inworld Makes Sense?</h2>
+<p>Based on my experience as a mod owner, I can confidently say that many people lack the time or inclination to read through lengthy installation steps. Many ignore the entire description and attempt to install the mod directly. In such a situation, the last thing you want is to add a lot of complicated installation steps that users might not complete or realize after completion that their hardware isn't powerful enough. More steps == more bugs, which means more work for the mod owner. Considering that I'm not willing to pay high cloud computing fees, local models are not an option for me. The next choice is online models, but these require pretraining the models for better responses. They are often designed for developers, making the sign-up/setup process unattractive for average players. Given these conditions, service models become the most logical choice.</p>
+<p>From the list, Inworld stands out with its free tier and feature pairing. I must admit that I'm biased here, as I have used Inworld in many of my mods, and they have given me a free developer account for several months. However, my mods have been downloaded and played by thousands of people, and I know for sure that most of them have enjoyed it completely free, without having to add their credit card details anywhere. Knowing that Inworld allows this flexibility to players is one of the main reasons why I choose to move forward with Inworld. In the next chapter, we will talk about details on using Inworld.</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      &copy; <span id='year'></span><script>document.getElementById("year").innerText = new Date().getFullYear() </script> <a href="https://www.youtube.com/@Bloctheworker"  target="_blank" rel="noopener">BlocTheWorker</a>
+
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.sections", "toc.integrate", "navigation.top", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation", "content.code.copy"], "search": "../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.220ee61c.min.js"></script>
+      
+    
+  </body>
+</html>

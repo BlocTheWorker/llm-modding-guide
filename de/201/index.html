@@ -1,0 +1,563 @@
+
+<!doctype html>
+<html lang="de" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://bloctheworker.github.io/llm-modding-guide/de/201/">
+      
+      
+        <link rel="prev" href="../101/">
+      
+      
+        <link rel="next" href="../301/">
+      
+      <link rel="icon" href="../../resource/icon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.1.21">
+    
+    
+      
+        <title>LLM Modding 201 - LLM Modding Guide</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.eebd395e.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ecc896b0.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="indigo">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#llm-modding-201" class="md-skip">
+          Zum Inhalt
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Kopfzeile">
+    <a href="../" title="LLM Modding Guide" class="md-header__button md-logo" aria-label="LLM Modding Guide" data-md-component="logo">
+      
+  <img src="../../resource/icon.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            LLM Modding Guide
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              LLM Modding 201
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+          
+            
+            
+            
+            <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+            
+              <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+              </label>
+            
+          
+            
+            
+            
+            <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+            
+              <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+              </label>
+            
+          
+        </form>
+      
+    
+    
+      <div class="md-header__option">
+        <div class="md-select">
+          
+          <button class="md-header__button md-icon" aria-label="Sprache wechseln">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.52 17.52 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04M18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12m-2.62 7 1.62-4.33L19.12 17h-3.24Z"/></svg>
+          </button>
+          <div class="md-select__inner">
+            <ul class="md-select__list">
+              
+                <li class="md-select__item">
+                  <a href="../../201/" hreflang="en" class="md-select__link">
+                    English
+                  </a>
+                </li>
+              
+                <li class="md-select__item">
+                  <a href="../../tr/201/" hreflang="tr" class="md-select__link">
+                    Türkçe
+                  </a>
+                </li>
+              
+                <li class="md-select__item">
+                  <a href="./" hreflang="de" class="md-select__link">
+                    Deutsch
+                  </a>
+                </li>
+              
+            </ul>
+          </div>
+        </div>
+      </div>
+    
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Hauptnavigation" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../" class="md-tabs__link">
+      Einleitung
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../101/" class="md-tabs__link">
+      LLM Modding 101
+    </a>
+  </li>
+
+      
+        
+  
+  
+    
+  
+
+
+  <li class="md-tabs__item">
+    <a href="./" class="md-tabs__link md-tabs__link--active">
+      LLM Modding 201
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../301/" class="md-tabs__link">
+      LLM Modding 301
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../401/" class="md-tabs__link">
+      LLM Modding 401
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../" title="LLM Modding Guide" class="md-nav__button md-logo" aria-label="LLM Modding Guide" data-md-component="logo">
+      
+  <img src="../../resource/icon.png" alt="logo">
+
+    </a>
+    LLM Modding Guide
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        Einleitung
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../101/" class="md-nav__link">
+        LLM Modding 101
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          LLM Modding 201
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        LLM Modding 201
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Inhaltsverzeichnis">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhaltsverzeichnis
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#lokale-online-oder-service-modelle" class="md-nav__link">
+    Lokale, Online- oder Service-Modelle?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#uber-lokale-modelle" class="md-nav__link">
+    Über lokale Modelle
+  </a>
+  
+    <nav class="md-nav" aria-label="Über lokale Modelle">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#systemarchitekturdiagramm" class="md-nav__link">
+    Systemarchitekturdiagramm
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#uber-online-modelle" class="md-nav__link">
+    Über Online-Modelle
+  </a>
+  
+    <nav class="md-nav" aria-label="Über Online-Modelle">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#systemarchitekturdiagramm_1" class="md-nav__link">
+    Systemarchitekturdiagramm
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#uber-service-modelle" class="md-nav__link">
+    Über Service-Modelle
+  </a>
+  
+    <nav class="md-nav" aria-label="Über Service-Modelle">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#systemarchitekturdiagramm_2" class="md-nav__link">
+    Systemarchitekturdiagramm
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../301/" class="md-nav__link">
+        LLM Modding 301
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../401/" class="md-nav__link">
+        LLM Modding 401
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="llm-modding-201">LLM Modding 201</h1>
+<div style="text-align:center; overflow:hidden; max-height:330px;">  
+  <img src="../../resource/images/genimg2.jpeg" alt="Cover Image" style="width:60%; height:auto; object-fit:cover; object-position:center;">
+</div>
+
+<h2 id="lokale-online-oder-service-modelle">Lokale, Online- oder Service-Modelle?</h2>
+<p>Wenn es um Modding mit LLMs geht, haben Sie mehrere Optionen. Obwohl diese Einteilung für einige nicht zufriedenstellend sein mag, möchte ich sie so klassifizieren, und hier sind einige Details zu jeder:</p>
+<ul>
+<li>Lokale LLM-Modelle: Dies sind Modelle, die auf handelsüblichen PCs ausgeführt werden, die keine Internetverbindung benötigen, und die gesamte Berechnung erfolgt auf dem Consumer-Laufwerk.</li>
+<li>Online-LLM-Modelle: Dies sind Modelle, die Sie online ausführen müssen, entweder weil Sie sie aufgrund von Hardware- oder rechtlichen Einschränkungen nicht auf Consumer-Hardware ausführen können.</li>
+<li>Service-LLM-Modelle: Dies sind Modelle, die auf bestimmte Bereiche spezialisiert sind und eine API für Entwickler bereitstellen, die einige mühsame Aspekte der LLM-Systeme ausklammert (Beispiel: <a href="http://inworld.ai?utm_campaign=bloc-modding-guide">Inworld KI</a>).</li>
+</ul>
+<p>Möglicherweise haben Sie auch einige Modelle gefunden, die eine Mischung aus diesen Kategorien sind, aber es gibt keine Notwendigkeit, eine separate Kategorie für sie zu erstellen. Im folgenden Abschnitt werde ich versuchen, alle diese Kategorienmodelle nach bestem Wissen und Gewissen zu erklären, indem ich die Vor- und Nachteile jeder Kategorie aufzeige.</p>
+<h2 id="uber-lokale-modelle">Über lokale Modelle</h2>
+<h4 id="systemarchitekturdiagramm">Systemarchitekturdiagramm</h4>
+<p><img alt="Lokales LLM-Diagramm" src="../../resource/diagrams/localmodelllm.png" title="Lokales LLM-Diagramm" /></p>
+<p><strong>Vorteile:</strong></p>
+<p>Lokale Modelle sind insofern großartig, als sie normalerweise keine ständige Internetverbindung benötigen. Dies ist vorteilhaft für Benutzer, die sich um ihre Privatsphäre sorgen. Darüber hinaus können die meisten Modelle ohne Einschränkungen ausgeführt werden, was weniger zensierte Modelle für Mods ermöglicht - was je nach Art des Mod-Konzepts, das Sie im Kopf haben (zum Beispiel wird Gewalt von vielen KI-Modellen nicht genehmigt, es sei denn, Sie entfernen einige Schutzvorrichtungen), großartig sein kann. Sie sind auch kostenlos, da alles lokal passiert, so dass die Benutzer nichts bezahlen müssen.</p>
+<p><strong>Nachteile:</strong></p>
+<p>Oft kommen diese lokalen Modelle in zwei Qualitäten - Modelle mit großen Parametern und Modelle mit kleinen Parametern. Modelle mit großen Parametern erfordern oft sehr hochwertige Hardware, um ausgeführt zu werden (wie mindestens 100sGB RAM und dergleichen), und sie nehmen auch einen sehr großen Speicherplatz auf der Hardware ein. Dies ist, wie Sie erwarten können, im Moment nicht für jeden Mod-Benutzer attraktiv, und Sie würden nur einen Bruchteil der Spielergemeinschaft als Mod-Benutzer ansprechen. Für Modelle mit kleinen Parametern hingegen benötigen sie in den meisten Fällen weniger leistungsfähige Maschinen. Sie benötigen jedoch immer noch etwa 16GB RAM, eine gute GPU und ziemlich viel Speicherplatz. Leider ist die Qualität der Antworten von diesen kleinen Parametermodellen auch sehr fragwürdig (zumindest nach meinen Beobachtungen sind sie nicht gut). Sie können GPT-Q und GGML-Versionen der Modelle finden, die je nach Verbraucherspezifikationen helfen können, aber dennoch benötigen Sie in jeder Kategorie gute Hardware. GPT-Q ist für CUDA-Inferenzmodelle (im Grunde GPU) und GGML ist für CPU ausgelegt. Darüber hinaus gibt es Modelle, die auf Consumer-Hardware laufen können, wo es 4GB VRAM oder 16GB RAM benötigt, und Sie könnten sagen "Großartig, also funktioniert es", aber Sie würden die Tatsache vergessen, dass das Ausführen der Modelle nicht die einzige Anforderung ist. Wir müssen die Modelle und das Spiel gleichzeitig ausführen, und dies ohne Beeinträchtigung der Spiel-Performance (aufgrund des begrenzten RAM/VRAM) erfordert hochwertige Hardware, die die meisten Leute nicht besitzen. Außerdem erfordert das Einrichten dieser lokalen Modelle oft das Installieren einer Menge zusätzlicher Software auf der Hardware des Spielers, was die Schritte erhöht, die sie abschließen müssen, bevor sie ihren Mod genießen können. Da die meisten Mod-Nutzer keine Software-Entwickler sein werden, werden sie Schwierigkeiten haben, ihre Umgebungen so einzurichten, wie Sie es können, was die Anzahl der Spieler, die Ihren Mod genießen können, verringern wird. Darüber hinaus fehlen bei allen lokalen Modellen die Nebenleistungen, die Online- oder Service-Modelle bieten, wie TTS/STT oder Action-Systeme, Stimmen usw. Sie müssen das LLM-Prompting für maximale Effizienz erlernen, damit Ihr Mod das lokale Modell in dieser Struktur aufruft, um die besten Antworten zu erhalten.</p>
+<h2 id="uber-online-modelle">Über Online-Modelle</h2>
+<h4 id="systemarchitekturdiagramm_1">Systemarchitekturdiagramm</h4>
+<p><img alt="Online-Modell-Diagramm" src="../../resource/diagrams/onlinemodel.png" title="Online-Modell-Diagramm" /></p>
+<p><strong>Vorteile:</strong></p>
+<p>Online-Modelle können zwei Untergruppen haben: einsatzbereite Online-Modelle, wie die OpenAI-API, oder benutzerdefinierte Online-Modelle, wie das Ausführen lokaler Modelle auf Ihrem Cloud-Anbieter und das Bereitstellen dieser API für Modder. Beide Optionen haben einen gemeinsamen Vorteil: Sie nehmen die Ausführungslast von der Consumer-Hardware. Das bedeutet, dass sie, solange sie das Mod spielen können, auch in der Lage sein sollten, LLMs zu verwenden. Außerdem sind sie für die Benutzer oft einfacher einzurichten, weil Sie als Mod-Ersteller einfach die API aufrufen und sie nichts extra tun müssen. Aus Update-Perspektive ist es auch einfacher, in dem Sinne, dass Sie keine GBs an Daten als Update pushen müssen, wenn eine bessere Version veröffentlicht wird; Sie könnten einfach auf dem Server aktualisieren oder, wenn Sie ein einsatzbereites Modell verwenden, würde es automatisch aktualisiert.</p>
+<p><strong>Nachteile:</strong></p>
+<p>Der Benutzer benötigt eine Internetverbindung, um es zu verwenden - das bedeutet, dass eine ständige Internetverbindung ein Muss ist. Für einsatzbereite Online-Modelle sind sie oft nicht kostenlos und erfordern ein Abonnement. Mit anderen Worten, Benutzer müssen für die Nutzung bezahlen, und es erfordert die Anmeldung auf einer Seite und das Durchführen einiger zusätzlicher Arbeiten auf ihrer Benutzeroberfläche, was von vielen Benutzern nicht bevorzugt wird, weil es ein zusätzlicher Schritt ist. Für benutzerdefinierte Online-Modelle müssen Sie (als Mod-Entwickler) eine VM von einem Cloud-Anbieter mit sehr leistungsfähiger Hardware mieten und alle oben erklärten Schritte für lokale Modelle befolgen. Zusätzlich müssen Sie Ihre eigene API-Schnittstelle schreiben, damit Sie eingehende Anrufe bearbeiten und sie an Ihren lokalen Modellprozessor weiterleiten und die Antwort an den Anrufer zurücksenden können. Wie Sie vielleicht erraten können, ist dies für Mod-Ersteller wirtschaftlich nicht machbar, da der Betrieb eines solchen Servers viel Geld kosten kann. Außerdem müssen Sie jetzt im Grunde genommen lernen, wie man eine performante Web-API schreibt - was eher eine berufliche Fähigkeit als eine Hobby-Modding-Fähigkeit ist. Außerdem müssen Sie immer noch das LLM-Prompting für maximale Effizienz erlernen, damit Ihr Mod das lokale Modell in dieser Struktur aufruft, um die besten Antworten zu erhalten. Ähnlich wie bei lokalen Modellen kommen die meisten Online-Modelle nicht mit zusätzlichen Funktionen wie TTS/SST und Emotionen etc.</p>
+<h2 id="uber-service-modelle">Über Service-Modelle</h2>
+<h4 id="systemarchitekturdiagramm_2">Systemarchitekturdiagramm</h4>
+<p><img alt="Service-Modell-Diagramm" src="../../resource/diagrams/servicellm.png" title="Service-Modell-Diagramm" /></p>
+<p><strong>Vorteile:</strong></p>
+<p>Service-Modelle sind oft spezialisiert auf die Erstellung von Charakteren für Gespräche, was bedeutet, dass Sie wenig bis keine Prompting-Fähigkeiten benötigen, um diese Dienste zu nutzen. Dies, obwohl es trivial klingt, entfernt eine enorme Arbeitsbelastung von den Schultern der Entwickler. Ähnlich wie bei Online-Modellen eliminieren sie auch umständliche Installationsschritte, da keine lokale Installation für die Benutzer erforderlich ist. Die gesamte Architektur wird für die Entwickler einfacher, da es nur ein weiterer API-Aufruf ist. Außerdem bieten diese Dienste, da sie von professionellen Unternehmen betrieben werden, oft ihr eigenes SDK, das die groben Implementierungsdetails je nach Anwendungsfall abstrahiert. Darüber hinaus entfernen ähnlich wie Online-Modelle Service-Modelle die Ausführungsbelastung von der Hardware des Spielers, so dass jeder LLMs nutzen kann, unabhängig von der Leistungsfähigkeit seiner Hardware. Während nicht alle Service-Modelle dies anbieten, bieten Dienste wie Inworld andere Funktionen wie TTS/SST, Elevenlabs-Integration, Emotionen, Speicher und mehr aus der Box an, was die Fähigkeiten des Mods mit LLM erheblich bereichert. Aufgrund der Natur von Service-Modellen sind sie im Vergleich zu Online-Modellen kostenbewusster, da sie Endverbraucher als Zielgruppe betrachten, im Gegensatz zu Online-Modellen, bei denen die Zielgruppe Entwickler sind. Der Anmelde-, Zahlungs- und Einrichtungsprozess von Service-Modellen ist oft mit einem kundenorientierten Ansatz gestaltet, was die Benutzerakzeptanz aufgrund ihrer vertrauten UI/UX-Seiten erleichtert. Service-Modelle erfordern keinerlei Anstrengung von Mod-Entwicklern, da sie keine Server einrichten oder für die Infrastruktur bezahlen müssen, sondern einfach die Service-Endpunkte nutzen, was die Entwicklung für Mod-Ersteller erheblich erleichtert.</p>
+<p><strong>Nachteile:</strong></p>
+<p>Ähnlich wie bei Online-Modellen müssen Benutzer, um Service-Modelle zu nutzen, mit dem Internet verbunden sein, was von einigen Benutzern nicht bevorzugt wird. Service-Modelle erfordern oft bezahlte Abonnements, obwohl Dienste wie Inworld kostenlose Ebenen für die Mehrheit der Anwendungsfälle anbieten. Unabhängig davon erfordern diese Systeme eine Anmeldung, was ein zusätzlicher Schritt für die Benutzer ist.</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Zurück zum Seitenanfang
+          </button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      &copy; <span id='year'></span><script>document.getElementById("year").innerText = new Date().getFullYear() </script> <a href="https://www.youtube.com/@Bloctheworker"  target="_blank" rel="noopener">BlocTheWorker</a>
+
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.sections", "toc.integrate", "navigation.top", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation", "content.code.copy"], "search": "../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "In Zwischenablage kopiert", "clipboard.copy": "In Zwischenablage kopieren", "search.result.more.one": "1 weiteres Suchergebnis auf dieser Seite", "search.result.more.other": "# weitere Suchergebnisse auf dieser Seite", "search.result.none": "Keine Suchergebnisse", "search.result.one": "1 Suchergebnis", "search.result.other": "# Suchergebnisse", "search.result.placeholder": "Suchbegriff eingeben", "search.result.term.missing": "Es fehlt", "select.version": "Version ausw\u00e4hlen"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.220ee61c.min.js"></script>
+      
+    
+  </body>
+</html>

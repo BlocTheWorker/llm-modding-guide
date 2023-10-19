@@ -1,0 +1,603 @@
+
+<!doctype html>
+<html lang="tr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://bloctheworker.github.io/llm-modding-guide/tr/401/">
+      
+      
+        <link rel="prev" href="../301/">
+      
+      
+      <link rel="icon" href="../../resource/icon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.1.21">
+    
+    
+      
+        <title>LLM Modlama 401 - LLM Modding Guide</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.eebd395e.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ecc896b0.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="indigo">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#llm-modlama-401" class="md-skip">
+          Ana içeriğe geç
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Başlık">
+    <a href="../" title="LLM Modding Guide" class="md-header__button md-logo" aria-label="LLM Modding Guide" data-md-component="logo">
+      
+  <img src="../../resource/icon.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            LLM Modding Guide
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              LLM Modlama 401
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+          
+            
+            
+            
+            <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+            
+              <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+              </label>
+            
+          
+            
+            
+            
+            <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+            
+              <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+              </label>
+            
+          
+        </form>
+      
+    
+    
+      <div class="md-header__option">
+        <div class="md-select">
+          
+          <button class="md-header__button md-icon" aria-label="Dil seç">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.52 17.52 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04M18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12m-2.62 7 1.62-4.33L19.12 17h-3.24Z"/></svg>
+          </button>
+          <div class="md-select__inner">
+            <ul class="md-select__list">
+              
+                <li class="md-select__item">
+                  <a href="../../401/" hreflang="en" class="md-select__link">
+                    English
+                  </a>
+                </li>
+              
+                <li class="md-select__item">
+                  <a href="./" hreflang="tr" class="md-select__link">
+                    Türkçe
+                  </a>
+                </li>
+              
+                <li class="md-select__item">
+                  <a href="../../de/401/" hreflang="de" class="md-select__link">
+                    Deutsch
+                  </a>
+                </li>
+              
+            </ul>
+          </div>
+        </div>
+      </div>
+    
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Sekmeler" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../" class="md-tabs__link">
+      Giriş
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../101/" class="md-tabs__link">
+      LLM Modlama 101
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../201/" class="md-tabs__link">
+      LLM Modlama 201
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../301/" class="md-tabs__link">
+      LLM Modlama 301
+    </a>
+  </li>
+
+      
+        
+  
+  
+    
+  
+
+
+  <li class="md-tabs__item">
+    <a href="./" class="md-tabs__link md-tabs__link--active">
+      LLM Modlama 401
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigasyon" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../" title="LLM Modding Guide" class="md-nav__button md-logo" aria-label="LLM Modding Guide" data-md-component="logo">
+      
+  <img src="../../resource/icon.png" alt="logo">
+
+    </a>
+    LLM Modding Guide
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        Giriş
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../101/" class="md-nav__link">
+        LLM Modlama 101
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../201/" class="md-nav__link">
+        LLM Modlama 201
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../301/" class="md-nav__link">
+        LLM Modlama 301
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          LLM Modlama 401
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        LLM Modlama 401
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="İçindekiler">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      İçindekiler
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#neden-inworld" class="md-nav__link">
+    Neden Inworld?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inworld-hakknda" class="md-nav__link">
+    Inworld Hakkında
+  </a>
+  
+    <nav class="md-nav" aria-label="Inworld Hakkında">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#artlar" class="md-nav__link">
+    Artılar
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#eksiler" class="md-nav__link">
+    Eksiler
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inworld-ile-modlamaya-baslama" class="md-nav__link">
+    Inworld ile Modlamaya Başlama
+  </a>
+  
+    <nav class="md-nav" aria-label="Inworld ile Modlamaya Başlama">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mimari" class="md-nav__link">
+    Mimari
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#notlar" class="md-nav__link">
+    Notlar
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="llm-modlama-401">LLM Modlama 401</h1>
+<div style="text-align:center; overflow:hidden; max-height:330px;">
+  <img src="../../resource/images/inworldbanner.jpg" alt="inworld" style="width:60%; height:auto; object-fit:cover; object-position:center;">
+</div>
+
+<h4 id="neden-inworld">Neden Inworld?</h4>
+<p>Bu bölümün neden Inworld AI ile ilerlediğini merak ediyorsanız, hizmetler ve olası yaklaşımlar arasındaki karşılaştırmayı görmek için lütfen <a href="https://bloctheworker.github.io/llm-modding-guide/tr/301">301 bölümüne</a> göz atın. Artıları ve eksileri masaya yatırdığınızda, Inworld'un en iyi seçenek olarak öne çıktığını düşünüyorum ve bu yüzden üretim modlarımın neredeyse tamamında Inworld'u kullandım.</p>
+<h2 id="inworld-hakknda">Inworld Hakkında</h2>
+<p>İlk bakışta, "Inworld'un hedef kitlesi çoğunlukla oyun geliştiriciler gibi göründüğüne göre, ben bunu modumda nasıl kullanabilirim?" diye sorabilirsiniz. Ve böyle düşünmek hakkınızdır. Teknik olarak, Inworld'un ana hedefi, tüm kullanıcıların Inworld'u hiç görmeksizin kullanabileceği tek bir geliştirici aboneliği gibi görünüyor. Ancak tahmin edebileceğiniz gibi, bu durum ekonomik olarak hiçbir mod yaratıcı için uygulanabilir değil, aksi takdirde modları bir abonelik tabanlı DLC'ye dönüştürürsünüz. Inworld'un fiyatlandırma detaylarına bu bölümde girmeyeceğim çünkü her zaman müşteri geri bildirimlerini topluyorlar ve fiyatlandırmalarını buna göre güncelliyorlar. Bu yüzden, bunu okuduğunuz sırada, Inworld AI'nin fiyatlandırması mevcut sistemden bile daha uygun olabilir. Ancak genel olarak, Inworld'un fiyatlandırma politikası, kullanıcıların bir hesap oluşturup tamamen ücretsiz olarak uzun bir süre kullanmalarını sağlayacak kadar kullanıcı dostudur.</p>
+<p>Aşağıda artıları ve eksileri sıralayacağım. Ancak bu, önceki 301 bölümünün bir tekrarı olmayacak; burada yalnızca DevEx'e odaklanacağım.</p>
+<h3 id="artlar">Artılar</h3>
+<p><strong>Hepsini Yönetecek Bir Hizmet yaklaşımı:</strong> Gerekli tüm araçları özellik setinde sunar, bu yüzden birer birer farklı hizmetlere kaydolmanıza gerek yok.</p>
+<p><strong>Yabancılaştırmayan UX/UI:</strong> Ana olarak Geliştiriciler/Oyun Geliştiricilere odaklansalar da, UI/UX'leri düzenli kullanıcıları sistemle oynamaya ve ona aşina olmaya teşvik eder. Bu, bir mod geliştirici olarak size doğrudan bir fayda sağlamaz, ancak dolaylı olarak çok yardımcı olur çünkü birçok "bunu ve bunu nasıl yapabilirim" sorusunu ortadan kaldırır.</p>
+<p><strong>Fiyatlandırma:</strong> Tamamen ücretsiz olmayabilir, ama kesinlikle oyunculara hizmet vermek ve geliştirmek için yeterince <em>ücretsiz</em>. Oyuncuların, mod geliştiricinin herhangi bir değişiklik yapmasına gerek kalmadan daha fazla etkileşim süresi için hesaplarını yükseltmeleri de çok kolay.</p>
+<p><strong>Katılım:</strong> Herhangi bir sorunuz olması durumunda, Discord kanallarında geliştiriciler gerçekten sizinle etkileşim kuruyor. Bu, LLM modlama konusunda yeni olanlar için ekstra iyi. LLM talep kılavuzlarından teknik konulara kadar insanlara yardım ediyorlar.</p>
+<h3 id="eksiler">Eksiler</h3>
+<p><strong>Protokol ve SDK'lar:</strong> Seçilen protokol (gRPC), teknik yığınları açısından zaten biraz sınırlı olan modlar için iyi bir uyum sağlamıyor. Ayrıca, SDK'lar öncelikle Unreal veya Unity gibi popüler oyun motorlarına odaklanıyor, ancak modların %95'i, oyun bu motorlarla yapılmış olsa bile, bu motorlarla doğrudan etkileşimde bulunmuyor.</p>
+<p><strong>Eksik API'lar:</strong> Ne yazık ki, Inworld bazı çok önemli API'ları eksik, örneğin API veya SDK çağrısı ile karakterleri/beyinleri oluşturma, güncelleme veya silme. Ancak, Inworld'un bunun farkında olduğunu ve bunun üzerinde çalışmaya başladığını biliyorum, bu yüzden bunu okuduğunuzda, bu muhtemelen artık bir sorun olmayacak.</p>
+<p><br/></p>
+<hr/>
+<div style="text-align:center; overflow:hidden; max-height:330px;">
+  <img src="../../resource/images/genimg5.jpg" alt="inworld" style="width:60%; height:auto; object-fit:cover; object-position:center;">
+</div>
+
+<h2 id="inworld-ile-modlamaya-baslama">Inworld ile Modlamaya Başlama</h2>
+<p>Fiyatlandırma şeması ve giriş sistemi sayesinde, Inworld'u test etmek çok kolay. Sadece <a href="https://www.inworld.ai/">inworld.ai</a> adresine gidin ve "Başla"ya tıklayarak hesabınızı oluşturun. Oradan, Inworld size belirli karakterleri demo karakterler olarak içeren bir çalışma alanı sağlar.</p>
+<p>Öncelikle onlarla etkileşime geçmenizi ve tüm deneyimi anlamanızı şiddetle öneririm. Yeterince etkileşimde bulunduğunuzu hissettiğinizde, açıklamalarını, hedeflerini ve daha fazlasını kontrol edin. Diğer modellerin aksine, Inworld, günler boyunca özenle hazırlanmış büyük bir tanımlayıcı paragraf beklemiyor. Bunun yerine, endişeleri ve noktaları farklı bölümlere ayırıyorlar, böylece bunları daha düzenli bir şekilde doldurabilirsiniz. Ayrıca, Inworld, karakter oluşturma UI'si ile temel ve ileri kavramları ayırt ederek mükemmel bir iş çıkarır. Örneğin, çekirdek açıklama, tüm karakterlerin sahip olması gereken temel bir özelliktir, oysa kişilik ve duygular, bir temel karakterin ihtiyaç duyduğundan daha ileri özelliklerdir.</p>
+<p>Her bölüm hakkında kısaca bilgi vermek için:</p>
+<ul>
+<li>
+<p>Çekirdek Açıklama: Bu, karakterinizin temel yapısını, tarihini, mevcut durumunu ve kişilik özelliklerini içerir. Bu açıklama çok önemlidir ve LLM tarafından çok ciddiye alınır. Bu bölümde geçici bilgi eklememek akıllıca olacaktır çünkü bir şekilde, bu açıklama karakterin ruhuna işlenmiştir.</p>
+</li>
+<li>
+<p>Kusurlar: Bunlar, karakterin zayıflıklarını ve savunmasızlıklarını, motivasyonlarıyla birlikte temsil eder. Oluşturduğunuz karakteri derinleştirmek için kullanılabilirler.</p>
+</li>
+<li>
+<p>Diyalog Stili: Her karakterin diyalogunu elle oluşturmak istemiyorsanız, Inworld size bir dizi çok kullanışlı seçenek sunar. Ancak ciddiye almak istiyorsanız, özel bir diyalog stili eklemelisiniz. Gözlemlerime dayanarak, bu genellikle en iyi yanıtları verir.</p>
+</li>
+<li>
+<p>Ses Parametreleri: Bu, muhtemelen en anlaşılır bölümdür. Bir şeye dikkat çekmek gerekirse, bu, kutudan çıkan Elevenlabs entegrasyonu ile birlikte gelir. Bu, isterseniz (veya oyuncu istiyorsa), onların sahip olduğu herhangi bir Elevenlabs sesini klonlayabilir veya kullanabilir ve burada entegre edebilirsiniz. Ses verisi geçirildiğinde, bu durumda Elevenlabs kullanılacaktır.</p>
+</li>
+</ul>
+<p>İleri özelliklere geçiş yapalım: Kişilik, Bilgi, Hedefler, Sahneler ve İlişkiler.</p>
+<ul>
+<li>
+<p>Kişilik: İsminden de anlaşılacağı gibi, bu bölüm karakterlerimizin kişiliği ile ilgilidir. Burada, karakteri daha olumsuz, neşeli, korkmuş vb. seslendirebilirsiniz. Inworld'deki duygusal motor, Kişilik tarafından kontrol edilir, karakterin davranış biçimini, duygularını sıfatlar ve kaydırıcılar kullanarak tanımlayarak şekillendirir.</p>
+</li>
+<li>
+<p>Bilgi: Kullanıcı sorularına verilen yanıtlar, Gerçekler ve Bilgi tarafından sağlanır. Karaktere özgü bilgiler Kişisel Bilgi altında düşerken, Ortak Bilgi birden çok karakter arasında paylaşılır, dünya yaratmayı kolaylaştırır. Karakterleriniz gerçek dünyada temelli değilse, bunlar önemlidir. Hala AI'yı bir sürü ortak bilgi ekleyerek tamamen "izole" edemezsiniz, ancak ne kadar çok bilgi eklerseniz, o kadar iyi uyarlanmış yanıtlar alırsınız.</p>
+</li>
+<li>
+<p>Hedefler: Bu özellik, belirli eylemlerin önceden tanımlanmış kelimeler veya niyetler kullanılarak tetiklenmesini sağlar, son derece güçlüdür. Daha fazla ayrıntı için belgelerini incelemenizi şiddetle tavsiye ederim.</p>
+</li>
+<li>
+<p>Sahneler: Potansiyelini tam olarak kavrayamadım ve çok fazla kullanmadım. Temelde, karakterlere mevcut konumlarına dair bir his sağlar. Modifikasyonlarım çoğunlukla dinamik ayarlara odaklandığı için, Sahneler benim için çok faydalı olmadı. Ancak statik sahneler üzerinde yoğunlaşıyorsanız, derinlemesine incelemeye değer.</p>
+</li>
+<li>
+<p>İlişkiler: İlişki, NPC'ler ve oyuncular arasında farklı oyun oturumları boyunca ilişkilerin geliştirilmesine izin vermek üzere ayarlanmış yeni bir özellik setidir. Temel olarak, oyuncu ve karakter arasında "ilerleyici" ilişki anlamına gelir.</p>
+</li>
+</ul>
+<p>Daha fazla detay için, <a href="https://docs.inworld.ai/docs/intro">belgelerini kontrol edebilirsiniz</a>.</p>
+<h3 id="mimari">Mimari</h3>
+<div class="admonition i̇pucu">
+<p class="admonition-title">Not</p>
+<p>Eğer oyun modlamanız uygun NDK entegrasyonunu destekliyorsa ve NDK geliştirmede deneyimliyseniz, lütfen Inworld NDK geliştirme kitini kontrol edin. Burada açıklanan mimariden 10 kat daha verimli olabilir. Bakınız <a href="https://github.com/inworld-ai/inworld-ndk">inworld-ai/inworld-ndk</a>.</p>
+</div>
+<p>Genellikle oyunlar, ne yaptığınızı bilmiyorsanız ve oyunun çekirdeğini tamamen modlamazsanız, ortamlarında farklı DLL'leri çalıştırmaya izin vermez. Bu yüzden genellikle yan arabayı kullanmak daha iyidir.</p>
+<p>Daha önce modlarımla oynadıysanız, oyunu başlatmadan önce her zaman arka planda "terminal" görmeniz gerektiğini fark etmiş olabilirsiniz. Bunun ana nedeni, bu "terminal"in temelde, mevcut Inworld SDK'yı kullanan paketlenmiş bir Node.js soket sunucusu olmasıdır. Elbette, uygulamanızın ve gereksinimlerinizin bağlı olduğu duruma göre, bu gerekliliği tamamen kaldırabilir ve modu oyunun kendisine doğrudan entegre edebilirsiniz.</p>
+<p><img alt="Inworld Entegrasyon Diyagramı" src="../../resource/diagrams/inworldsystem.png" title="Inworld Entegrasyon Diyagramı" /></p>
+<p>Yukarıdaki resmin mimariyi net bir şekilde açıkladığını düşünüyorum. Ancak biraz daha bağlam vermek için:
+Oyun, eylemlerini gerçekleştirmek için "Relayer Uygulaması"nı bir proxy olarak kullanır; Inworld AI sistemi ile hiçbir zaman doğrudan etkileşime girmez. Diyagramda, Relayer Uygulaması'nın bir soket katmanını kullandığı gösterilmiştir; ancak, modunuzdaki kısıtlamalara bağlı olarak, bu aynı zamanda basit bir REST API de olabilir.
+Yan arabayınızın Inworld SDK'yı entegre edebilmesi sürece, gerisi tamamen size bağlıdır. Teknik olarak, uygulama ile oyun arasında bağlantı kurmak için adlandırılmış boruları kullanabilirsiniz. Ya da hatta bazı özel formatları veya geçici çözümleri kullanabilirsiniz, örneğin bir dosyaya yazabilir ve uygulama tarafında bunu okuyabilirsiniz. Ancak, bu son çare olmalıdır çünkü I/O işlemleri korkunç derecede yavaştır ve iletişimde istenmeyen gecikmelere neden olabilir.</p>
+<p>Yan araba yaklaşımının bir başka iyi yanı, teknik olarak ayrı bir süreç/uygulama gibi çalıştığı için, moddan bağımsız olarak çalışabilir ve daha fazla şey yapabilir. Örneğin, oyun size seslerin çalınmasına izin vermiyorsa, bunu yan araba ile ele alabilirsiniz çünkü muhtemelen bu tür işlemleri gerçekleştirme konusunda daha iyi bir şansı olacaktır. Ayrıca, mod kullanımı için bazı verileri saklamak, buna başvurmak isteyebilir, oyuncu ve sistem arasındaki iletişimi saklamak vb. için kendi küçük ölçekli veritabanınızı da oluşturabilirsiniz. Gerisi gerçekten hayal gücünüze bağlıdır - çılgına dönün! :)</p>
+<p>Inworld SDK ile bir yan araba nasıl uygulanır konusunda bir ipucu ihtiyacınız varsa, kontrol etmenizi öneririm:</p>
+<p><strong>Resmi Inworld NodeJS SDK Örnekleri</strong> hem JS hem de TS için. Eğer Inworld konusunda hiç aşina değilseniz, bu sizin ana giriş noktanız olmalı. <a href="https://github.com/inworld-ai/inworld-nodejs-sdk/tree/main/examples">Link</a></p>
+<p><strong>Bannerlord Mod</strong> ana Bannerlord mod için C# kullanırken, mevcut Inworld NodeJS SDK ve bir websocket katmanı kullanan bir JS yan arabası kullanır. <a href="https://github.com/BlocTheWorker/Inworld-Bannerlord-Mod">Link</a></p>
+<p><strong>Skyrim Mod</strong> ana Skyrim mod için C++, oyunla ilgili modlamalar için Papyrus Scripting, seslerin çalınması için C# Audio system (çünkü bunu Skyrim veya Node.js tarafında yapmak istemedim) + mevcut Inworld NodeJS SDK ve bir websocket katmanı kullanan TypeScript versiyonu bir yan arabası kullanır. <a href="https://github.com/BlocTheWorker/Inworld-Skyrim-Mod">Link</a></p>
+<p><strong>Inworld Discord</strong> kanalı, diğer geliştiricilerle iletişim kurmanın harika bir yolunu sağlar. Sorularınızı sorabilir ve topluluk bilgisinden bazı bilgiler toplayabilirsiniz. Tekerleği yeniden icat etmenize gerek yok. <a href="https://discord.com/invite/2jGPwV8g3b">Link</a></p>
+<h2 id="notlar">Notlar</h2>
+<p>Inworld AI, harika bir hizmet ve şimdiye kadar onunla çalışırken çok eğlendim. Önceki 301 bölümünde ve burada belirttiğimiz gibi, artıları ve eksileri vardır, ancak artıların eksileri büyük ölçüde ağır bastığını rahatlıkla söyleyebilirim. Dahası, Inworld'a her zaman iyileştirmeler önerebilirsiniz. Onları takdir ettiğim harika yönlerden biri bu—ne kadar erişilebilir oldukları. Sistemi geliştirmek için bir öneriniz olduğunda, basitçe öneride bulunabilir ve onlar gerçekten dinler! Tabii ki, herhangi bir şirket gibi, kendi arka plan öğelerine sahipler ve bunları nasıl uygulayacaklarını değerlendirmeleri gerekiyor. Ancak pragmatik bir bakış açısıyla, ekledikleri her değerli özellik, onlara uzun vadede fayda sağlayacaktır. Bu nedenle, iyi önerileri geri çevirmek için pratikte hiçbir nedenleri yok. Bu yüzden, eğer yeterince iyi olduğuna karar verilirse, bunun üzerinde çalışan biri olacağından emin olabilirsiniz.</p>
+<p>Bu tüm sayfa, LLM'ler kullanarak kendi modunuzu nasıl oluşturabileceğinize dairdir. Ancak, aynı fikirleri ve mimariyi kendi oyunlarınıza da uygulayabilirsiniz. Tabii ki, sistemler teknik olarak bu belgede ayrıntılı olarak anlatılandan farklı olabilir, özellikle çoğu modlamanın genellikle meydana geldiği özel oyun motorları, özgür olanlardan daha esneklik sunar.</p>
+<p>Bu kadar, arkadaşlar! Umarım bu belge, bazılarınıza yardımcı olmuştur. Bahsetmediğim, muhtemelen çekici bulabileceğiniz birçok diğer hizmet ve model olduğunun farkındayım. Ancak, bu tüm yazı, bilgim ve deneyimlerime dayanmaktadır. Katkıda bulunmak veya herhangi bir öneriniz varsa, bir çekme isteği oluşturarak bunu yapmaktan çekinmeyin. Bu makaleyi değerli bulduysanız ve başka bir dilden iseniz, lütfen bunu dilinize çevirmeme yardımcı olun.</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Başa dön
+          </button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      &copy; <span id='year'></span><script>document.getElementById("year").innerText = new Date().getFullYear() </script> <a href="https://www.youtube.com/@Bloctheworker"  target="_blank" rel="noopener">BlocTheWorker</a>
+
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.sections", "toc.integrate", "navigation.top", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation", "content.code.copy"], "search": "../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Kopyaland\u0131", "clipboard.copy": "Kopyala", "search.result.more.one": "Bu sayfada 1 tane daha", "search.result.more.other": "Bu sayfada # tane daha", "search.result.none": "E\u015fle\u015fen dok\u00fcman bulunamad\u0131", "search.result.one": "1 dok\u00fcman bulundu", "search.result.other": "# dok\u00fcman bulundu", "search.result.placeholder": "Aramaya ba\u015flamak i\u00e7in yaz\u0131n", "search.result.term.missing": "Eksik", "select.version": "Versiyon se\u00e7"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.220ee61c.min.js"></script>
+      
+    
+  </body>
+</html>

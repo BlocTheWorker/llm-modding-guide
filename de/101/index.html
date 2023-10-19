@@ -1,0 +1,639 @@
+
+<!doctype html>
+<html lang="de" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://bloctheworker.github.io/llm-modding-guide/de/101/">
+      
+      
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../201/">
+      
+      <link rel="icon" href="../../resource/icon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.1.21">
+    
+    
+      
+        <title>LLM Modding 101 - LLM Modding Guide</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.eebd395e.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ecc896b0.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="indigo">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#llm-modding-101" class="md-skip">
+          Zum Inhalt
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Kopfzeile">
+    <a href="../" title="LLM Modding Guide" class="md-header__button md-logo" aria-label="LLM Modding Guide" data-md-component="logo">
+      
+  <img src="../../resource/icon.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            LLM Modding Guide
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              LLM Modding 101
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+          
+            
+            
+            
+            <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+            
+              <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+              </label>
+            
+          
+            
+            
+            
+            <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+            
+              <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+              </label>
+            
+          
+        </form>
+      
+    
+    
+      <div class="md-header__option">
+        <div class="md-select">
+          
+          <button class="md-header__button md-icon" aria-label="Sprache wechseln">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.52 17.52 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04M18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12m-2.62 7 1.62-4.33L19.12 17h-3.24Z"/></svg>
+          </button>
+          <div class="md-select__inner">
+            <ul class="md-select__list">
+              
+                <li class="md-select__item">
+                  <a href="../../101/" hreflang="en" class="md-select__link">
+                    English
+                  </a>
+                </li>
+              
+                <li class="md-select__item">
+                  <a href="../../tr/101/" hreflang="tr" class="md-select__link">
+                    Türkçe
+                  </a>
+                </li>
+              
+                <li class="md-select__item">
+                  <a href="./" hreflang="de" class="md-select__link">
+                    Deutsch
+                  </a>
+                </li>
+              
+            </ul>
+          </div>
+        </div>
+      </div>
+    
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Hauptnavigation" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../" class="md-tabs__link">
+      Einleitung
+    </a>
+  </li>
+
+      
+        
+  
+  
+    
+  
+
+
+  <li class="md-tabs__item">
+    <a href="./" class="md-tabs__link md-tabs__link--active">
+      LLM Modding 101
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../201/" class="md-tabs__link">
+      LLM Modding 201
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../301/" class="md-tabs__link">
+      LLM Modding 301
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../401/" class="md-tabs__link">
+      LLM Modding 401
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../" title="LLM Modding Guide" class="md-nav__button md-logo" aria-label="LLM Modding Guide" data-md-component="logo">
+      
+  <img src="../../resource/icon.png" alt="logo">
+
+    </a>
+    LLM Modding Guide
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        Einleitung
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          LLM Modding 101
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        LLM Modding 101
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Inhaltsverzeichnis">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhaltsverzeichnis
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#einfuhrung" class="md-nav__link">
+    Einführung
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#einige-hintergrundinformationen-zu-llms" class="md-nav__link">
+    Einige Hintergrundinformationen zu LLMs
+  </a>
+  
+    <nav class="md-nav" aria-label="Einige Hintergrundinformationen zu LLMs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#was-ist-llm" class="md-nav__link">
+    Was ist LLM?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#was-ist-gpt" class="md-nav__link">
+    Was ist GPT?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#warum-bekommt-gpt-so-viel-aufmerksamkeit" class="md-nav__link">
+    Warum bekommt GPT so viel Aufmerksamkeit?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wird-gpt-anstelle-von-llms-verwendet" class="md-nav__link">
+    Wird GPT anstelle von LLMs verwendet?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#warum-konzentriert-sich-dieser-leitfaden-hauptsachlich-auf-llms" class="md-nav__link">
+    Warum konzentriert sich dieser Leitfaden hauptsächlich auf LLMs?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wie-nutzt-man-neuronale-netzwerke-ohne-gpt-oder-irgendein-llm" class="md-nav__link">
+    Wie nutzt man neuronale Netzwerke ohne GPT oder irgendein LLM?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#was-ist-ein-charaktermotor" class="md-nav__link">
+    Was ist ein Charaktermotor?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#die-groten-herausforderungen-der-llms" class="md-nav__link">
+    Die größten Herausforderungen der LLMs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#warum-das-training-ihres-eigenen-neuronalen-netzwerks-aufgrund-von-daten-und-wissen-herausfordernd-sein-kann" class="md-nav__link">
+    Warum das Training Ihres eigenen neuronalen Netzwerks aufgrund von Daten und Wissen herausfordernd sein kann
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wie-sie-entscheiden-konnen-ob-sie-llms-verwenden-konnen" class="md-nav__link">
+    Wie Sie entscheiden können, ob Sie LLMs verwenden können?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#uberprufen-sie-ob-ihre-entscheidung-richtig-ist" class="md-nav__link">
+    Überprüfen Sie, ob Ihre Entscheidung richtig ist
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#grundlagen" class="md-nav__link">
+    Grundlagen
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../201/" class="md-nav__link">
+        LLM Modding 201
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../301/" class="md-nav__link">
+        LLM Modding 301
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../401/" class="md-nav__link">
+        LLM Modding 401
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="llm-modding-101">LLM Modding 101</h1>
+<div style="text-align:center; overflow:hidden; max-height:330px;">  
+  <img src="../../resource/images/genimg3.jpeg" alt="Cover Image" style="width:60%; height:auto; object-fit:cover; object-position:center;">
+</div>
+
+<h2 id="einfuhrung">Einführung</h2>
+<p>In diesem Abschnitt werde ich die Grundlagen des Modding mit LLM diskutieren. Einige Teile könnten zu offensichtlich sein, um sie zu erwähnen, aber da dies eher eine allgemeine Anleitung ist, denke ich, dass ich fast alles erwähnen sollte, was mir in den Sinn kommt. Für die "Duh"-Teile, fühlen Sie sich frei zu überspringen und weiterzulesen.</p>
+<p>Modding mit LLM ist eine ausgezeichnete Möglichkeit, um Ihren Spielen lebensechtere Gespräche und unvergessliche Momente hinzuzufügen. LLMs können verwendet werden, um Dialoge, Beschreibungen und sogar ganze Geschichten zu generieren. Sie können auch dazu verwendet werden, um neue Charaktere, Orte und Quests zu erstellen.</p>
+<p>Hier sind einige der Vorteile des Modding mit LLMs:</p>
+<ul>
+<li>LLMs können realistischere und ansprechendere Dialoge generieren als traditionelle Skriptmethoden.</li>
+<li>LLMs können komplexe und unvergessliche Charaktere kreieren, die die Spieler lieben werden.</li>
+<li>LLMs können verwendet werden, um neuen Inhalt für Ihr Spiel zu generieren, wie Geschichten, Quests und Orte.</li>
+<li>LLMs können verwendet werden, um die allgemeine Qualität des Schreibens in Ihrem Spiel zu verbessern.</li>
+</ul>
+<h2 id="einige-hintergrundinformationen-zu-llms">Einige Hintergrundinformationen zu LLMs</h2>
+<h3 id="was-ist-llm">Was ist LLM?</h3>
+<p>LLM, oder in anderen Worten, Large Language Models, sind Modelle, die auf einem riesigen Datensatz von Text und Code trainiert wurden.</p>
+<h3 id="was-ist-gpt">Was ist GPT?</h3>
+<p>GPT steht für Generative Pre-trained Transformer. GPT ist eine Form von LLM. GPT kann verwendet werden, um Text zu generieren, Sprachen zu übersetzen, verschiedene Arten von kreativen Inhalten zu schreiben und Ihre Fragen auf informative Weise zu beantworten.</p>
+<h3 id="warum-bekommt-gpt-so-viel-aufmerksamkeit">Warum bekommt GPT so viel Aufmerksamkeit?</h3>
+<p>GPT bekommt so viel Aufmerksamkeit, weil es eines der leistungsstärksten und vielseitigsten Sprachmodelle ist, die jemals erstellt wurden. Es kann für eine Vielzahl von Aufgaben verwendet werden, einschließlich der Generierung von realistischen und ansprechenden Dialogen, der Erstellung von komplexen und unvergesslichen Charakteren und dem Schreiben von neuem Inhalt für Spiele.</p>
+<h3 id="wird-gpt-anstelle-von-llms-verwendet">Wird GPT anstelle von LLMs verwendet?</h3>
+<p>GPT ist eine Art von LLM, daher wird es nicht anstelle von LLMs verwendet. Allerdings wird GPT oft anderen LLMs vorgezogen, da es sehr einfach zu bedienen ist, da es über eine öffentliche API von OpenAI (GPT 3.5+) verfügbar ist.</p>
+<h3 id="warum-konzentriert-sich-dieser-leitfaden-hauptsachlich-auf-llms">Warum konzentriert sich dieser Leitfaden hauptsächlich auf LLMs?</h3>
+<p>Dieser Leitfaden konzentriert sich hauptsächlich auf LLMs, da das Modding mit LLMs heutzutage ein recht neues Thema ist und einige gemeinsame Schlüsselpunkte aufweist, die man unabhängig vom Spiel, das man modded, befolgen muss.</p>
+<h3 id="wie-nutzt-man-neuronale-netzwerke-ohne-gpt-oder-irgendein-llm">Wie nutzt man neuronale Netzwerke ohne GPT oder irgendein LLM?</h3>
+<p>Es gibt viele Möglichkeiten, neuronale Netzwerke ohne GPT oder irgendein LLM zu nutzen. Zum Beispiel können Sie neuronale Netzwerke verwenden, um Bilder zu klassifizieren, Musik zu generieren oder Sprachen zu übersetzen.
+Um ein neuronales Netzwerk zu nutzen, müssen Sie es auf einem Datensatz von Daten trainieren. Wenn Sie ein neuronales Netzwerk zur Bildklassifizierung nutzen möchten, müssen Sie es auf einem Datensatz von Bildern trainieren. Sobald das neuronale Netzwerk trainiert ist, können Sie es verwenden, um Vorhersagen über neue Daten zu treffen. Zum Beispiel könnten Sie, wenn Sie ein neuronales Netzwerk zur Bildklassifizierung trainiert haben, es verwenden, um neue Bilder zu klassifizieren, die Sie noch nie zuvor gesehen haben.</p>
+<h3 id="was-ist-ein-charaktermotor">Was ist ein Charaktermotor?</h3>
+<p>Charaktermotoren helfen Entwicklern dabei, die benötigte Zeit, den Aufwand und die Ressourcen für die Erstellung KI-gesteuerter NPCs drastisch zu reduzieren. Im Wesentlichen ist es wie eine Spiel-Engine, aber für die generative KI-Charaktererstellung.</p>
+<h3 id="die-groten-herausforderungen-der-llms">Die größten Herausforderungen der LLMs</h3>
+<p>LLMs stehen vor mehreren bedeutenden Herausforderungen, darunter:</p>
+<ul>
+<li><strong>Bias:</strong> LLMs können Bias aufweisen, der die in den Daten, auf denen sie trainiert wurden, vorhandenen Vorurteile widerspiegelt.</li>
+<li><strong>Sicherheit:</strong> LLMs können dazu verwendet werden, schädliche Inhalte zu generieren, wie Hassreden oder Fehlinformationen.</li>
+<li><strong>Kosten:</strong> Das Training und die Bereitstellung von LLMs können teuer sein.</li>
+</ul>
+<h3 id="warum-das-training-ihres-eigenen-neuronalen-netzwerks-aufgrund-von-daten-und-wissen-herausfordernd-sein-kann">Warum das Training Ihres eigenen neuronalen Netzwerks aufgrund von Daten und Wissen herausfordernd sein kann</h3>
+<p>Das Training Ihres eigenen neuronalen Netzwerks kann aufgrund der Anforderungen an Daten und Wissen herausfordernd sein. Neuronale Netzwerke müssen auf einer großen Menge von Daten trainiert werden, und das Sammeln von genügend Daten für ein effektives Training kann schwierig und teuer sein.</p>
+<p>Außerdem erfordert es Kenntnisse in Maschinenlernen und neuronalen Netzwerken, um erfolgreich Ihr eigenes neuronales Netzwerk zu trainieren. Wenn Sie dieses Wissen nicht haben, kann das Training eines neuronalen Netzwerks eine herausfordernde Aufgabe sein.</p>
+<h2 id="wie-sie-entscheiden-konnen-ob-sie-llms-verwenden-konnen">Wie Sie entscheiden können, ob Sie LLMs verwenden können?</h2>
+<p><pre class="mermaid"><code>graph LR
+  A[Start] --&gt; B{Unterstützt das Spiel irgendeine Art von Modding?};
+  B --&gt;|Ja| C[Können Sie Mods erstellen, die irgendeine Art von Codierung beinhalten?];
+  C --&gt;|Nein| E;
+  C --&gt;|Ja| D[Erlaubt das Modding im Spiel das Verbinden von Sockets oder HTTP-Aufrufen?];
+  D --&gt;|Nein| E;
+  D --&gt;|Ja| F[Du kannst LLMs verwenden];
+  B ----&gt;|Nein| E[Du kannst keine LLMs verwenden];</code></pre>
+Modding mit LLM ist nicht für jedes Spiel geeignet. Hier sind einige Dinge, die Sie in Betracht ziehen sollten, bevor Sie entscheiden, ob Sie Ihr Spiel mit LLM modden sollten:</p>
+<ul>
+<li><strong>Ist Ihr Spiel modifizierbar?</strong> Nicht alle Spiele sind modifizierbar. Einige Spiele haben eine eingebaute Mod-Unterstützung, während andere Drittanbieter-Tools benötigen. Wenn Ihr Spiel nicht modifizierbar ist, werden Sie nicht in der Lage sein, LLM zur Modifizierung zu verwenden.</li>
+<li><strong>Hat Ihr Spiel eine Modding-Community?</strong> Nicht alle Spiele haben eine Modding-Community, und selbst wenn sie eine haben, ist die Community vielleicht nicht aktiv oder unterstützend. Wenn es keine Modding-Community für Ihr Spiel gibt, wird es schwieriger sein, Hilfe und Unterstützung zu finden, wenn Sie auf Probleme stoßen. Besonders wenn Sie kein erfahrener Modder für dieses Spiel sind.</li>
+<li><strong>Was sind Ihre Ziele?</strong> Was erhoffen Sie sich von der Modifizierung Ihres Spiels mit LLM? Möchten Sie die Dialoge verbessern, neue Charaktere hinzufügen oder neuen Inhalt erstellen? Sobald Sie Ihre Ziele kennen, können Sie anfangen, darüber nachzudenken, wie Sie LLM am besten einsetzen können, um sie zu erreichen.</li>
+</ul>
+<h2 id="uberprufen-sie-ob-ihre-entscheidung-richtig-ist">Überprüfen Sie, ob Ihre Entscheidung richtig ist</h2>
+<p>Bevor Sie mit dem Modding Ihres Spiels mit LLM beginnen, ist es wichtig, sicherzustellen, dass Sie alle notwendigen Tools und Ressourcen haben. Hier sind einige Dinge, die Sie überprüfen sollten:
+* <strong>Stellen Sie sicher, dass Sie die neueste Version von LLM haben.</strong> LLM wird ständig aktualisiert, daher ist es wichtig, sicherzustellen, dass Sie die neueste Version haben. Dies liegt normalerweise nicht in Ihrer Kontrolle, wenn Sie Online-Modelle verwenden - was je nach Ziel gut oder schlecht sein kann.
+* <strong>Stellen Sie sicher, dass Sie ein gutes Verständnis davon haben, wie man LLM benutzt.</strong> Es gibt viele Tutorials und Ressourcen online, die Ihnen helfen können, zu lernen, wie man LLM benutzt. Wenn Sie Ihren eigenen Server mit einer Version von LLM (Llama etc.) erstellen, dann sollten Sie wissen, wie das funktioniert und Ihre API darum herum anpassen. Beides erfordert ein gewisses Fachwissen.
+* <strong>Stellen Sie sicher, dass Sie ein gutes Verständnis der Modding-Tools für Ihr Spiel haben.</strong> Jedes Spiel hat seine eigenen Modding-Tools und -Prozesse, daher ist es wichtig, sicherzustellen, dass Sie wissen, wie man sie benutzt. Wenn Sie nicht wissen, wie man sie benutzt, sollte Ihr erstes Ziel sein, das zu überprüfen und zu lernen. Auch wenn Sie ein erfahrener Modder im Spiel X sind, garantiert das nicht, dass Sie auch im Spiel Y gut sein werden.</p>
+<h2 id="grundlagen">Grundlagen</h2>
+<p>Um mit dem LLM Modding zu beginnen, müssen Sie ein paar grundlegende Dinge wissen:
+* <strong>Prompt-Fähigkeiten:</strong> LLM wird auf einem riesigen Datensatz von Text und Code trainiert, aber es muss immer noch aufgefordert werden, um Text zu generieren. Sie müssen lernen, wie man effektive Prompts schreibt, um die besten Ergebnisse von LLM zu erhalten. Sie können diese Anforderung für bestimmte Dienste (wie <a href="http://inworld.ai?utm_campaign=bloc-modding-guide">Inworld Charaktermotor</a>) eliminieren, aber wenn Sie planen, Ihr eigenes System zu verwenden, ist dies ein Muss.
+* <strong>Programmierkenntnisse:</strong> Einige LLM-Modding erfordert Programmierkenntnisse. Zum Beispiel müssen Sie möglicherweise Code schreiben, um LLM in Ihr Spiel zu integrieren oder benutzerdefinierte Prompts zu erstellen.</p>
+<p>Sobald Sie ein grundlegendes Verständnis von LLM und Programmierung haben, können Sie anfangen, mit dem Modding Ihres Spiels zu experimentieren. Es gibt viele Möglichkeiten, wie Sie LLM zum Modding Ihres Spiels verwenden können, also seien Sie kreativ und haben Sie Spaß!</p>
+<p>Hier sind einige zusätzliche Tipps für das LLM Modding:</p>
+<ul>
+<li><strong>Fangen Sie klein an.</strong> Versuchen Sie nicht, Ihr ganzes Spiel auf einmal zu modden. Beginnen Sie damit, einen kleinen Teil Ihres Spiels zu modden, wie einen einzelnen Charakter oder eine Quest. Dies wird Ihnen helfen, die Seile zu lernen und potenzielle Probleme zu identifizieren.</li>
+<li><strong>Testen Sie oft.</strong> Sobald Sie einige Änderungen an Ihrem Spiel vorgenommen haben, sollten Sie diese gründlich testen. Dies wird Ihnen helfen, Fehler oder Probleme zu identifizieren, die Sie möglicherweise verursacht haben.</li>
+<li><strong>Holen Sie sich Feedback von anderen.</strong> Sobald Sie Ihre Änderungen getestet haben, teilen Sie sie mit anderen und holen Sie sich ihr Feedback. Dies wird Ihnen helfen, Bereiche zu identifizieren, in denen Ihre Mod verbessert werden kann.</li>
+</ul>
+<p>LLM Modding kann viel Spaß machen, und es kann eine großartige Möglichkeit sein, Ihre Spiele zu verbessern. Mit ein wenig Aufwand können Sie Mods erstellen, die Ihre Spiele für Sie und andere angenehmer machen.</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Zurück zum Seitenanfang
+          </button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      &copy; <span id='year'></span><script>document.getElementById("year").innerText = new Date().getFullYear() </script> <a href="https://www.youtube.com/@Bloctheworker"  target="_blank" rel="noopener">BlocTheWorker</a>
+
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.sections", "toc.integrate", "navigation.top", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation", "content.code.copy"], "search": "../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "In Zwischenablage kopiert", "clipboard.copy": "In Zwischenablage kopieren", "search.result.more.one": "1 weiteres Suchergebnis auf dieser Seite", "search.result.more.other": "# weitere Suchergebnisse auf dieser Seite", "search.result.none": "Keine Suchergebnisse", "search.result.one": "1 Suchergebnis", "search.result.other": "# Suchergebnisse", "search.result.placeholder": "Suchbegriff eingeben", "search.result.term.missing": "Es fehlt", "select.version": "Version ausw\u00e4hlen"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.220ee61c.min.js"></script>
+      
+    
+  </body>
+</html>
