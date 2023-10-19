@@ -1,7 +1,7 @@
 # Intro
 
 <div style="text-align:center; overflow:hidden; max-height:400px;">
-  <img src="../resource/images/genimg4.jpeg" alt="Cover Image" style="width:90%; height:auto; object-fit:cover; object-position:center;">
+  <img src="https://bloctheworker.github.io/llm-modding-guide/resource/images/genimg4.jpeg" alt="Cover Image" style="width:90%; height:auto; object-fit:cover; object-position:center;">
 </div>
 
 
