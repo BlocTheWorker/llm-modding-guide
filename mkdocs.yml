@@ -1,4 +1,5 @@
 site_name: LLM Modding Guide
+site_url: https://bloctheworker.github.io/llm-modding-guide/
 theme:
   name: material
   logo: resource/icon.png
@@ -28,7 +29,6 @@ theme:
 plugins:
   - i18n:
       docs_structure: folder
-      site_url: "https://bloctheworker.github.io/llm-modding-guide/"
       languages:
         - locale: en
           default: true
