@@ -1,6 +1,5 @@
 site_name: LLM Modding Guide
 site_url: https://bloctheworker.github.io/llm-modding-guide/
-repo_url: https://github.com/BlocTheWorker/llm-modding-guide
 theme:
   name: material
   logo: resource/icon.png
