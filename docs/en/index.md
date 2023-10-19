@@ -36,7 +36,7 @@ I hope that this guide will be a valuable resource for modders who are intereste
 
 I will divide this into 3 sections.
 
-* [LLM Modding 101](/101) : Will give overall introduction and required things
-* [LLM Modding 201](/201) : Will focus on explaining different LLM types and will focus on their pros ad cons.
-* [LLM Modding 301](/301) : Will explain architecture types, give detailed information about known LLM types and some reasoning behind all.
-* [LLM Modding 401](/401) : Will focus mostly on using Inworld and discuss it's pros-cons and how-to's
+* [LLM Modding 101](https://bloctheworker.github.io/llm-modding-guide/101) : Will give overall introduction and required things
+* [LLM Modding 201](https://bloctheworker.github.io/llm-modding-guide/201) : Will focus on explaining different LLM types and will focus on their pros ad cons.
+* [LLM Modding 301](https://bloctheworker.github.io/llm-modding-guide/301) : Will explain architecture types, give detailed information about known LLM types and some reasoning behind all.
+* [LLM Modding 401](https://bloctheworker.github.io/llm-modding-guide/401) : Will focus mostly on using Inworld and discuss it's pros-cons and how-to's

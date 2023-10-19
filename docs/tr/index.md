@@ -36,7 +36,7 @@ LLM'leri kullanarak en sevdikleri oyunlar için yeni ve heyecan verici modlar ol
   
 Bunu 3 bölüme ayıracağım.  
   
-* [LLM Modlaması 101](/101) : Genel bir giriş ve gereken şeyleri verecek  
-* [LLM Modlaması 201](/201) : Farklı LLM türlerini açıklamaya odaklanacak ve artıları ve eksilerini ele alacak.  
-* [LLM Modlaması 301](/301) : Mimarlık türlerini açıklayacak, bilinen LLM türleri hakkında detaylı bilgi verecek ve bunların hepsinin arkasındaki bazı mantığı açıklayacak.  
-* [LLM Modlaması 401](/401) : Çoğunlukla Inworld kullanmayı ele alacak ve artıları-eksileri ve nasıl yapılacağı hakkında tartışacak.  
+* [LLM Modlaması 101](https://bloctheworker.github.io/llm-modding-guide/tr/101) : Genel bir giriş ve gereken şeyleri verecek  
+* [LLM Modlaması 201](https://bloctheworker.github.io/llm-modding-guide/tr/201) : Farklı LLM türlerini açıklamaya odaklanacak ve artıları ve eksilerini ele alacak.  
+* [LLM Modlaması 301](https://bloctheworker.github.io/llm-modding-guide/tr/301) : Mimarlık türlerini açıklayacak, bilinen LLM türleri hakkında detaylı bilgi verecek ve bunların hepsinin arkasındaki bazı mantığı açıklayacak.  
+* [LLM Modlaması 401](https://bloctheworker.github.io/llm-modding-guide/tr/401) : Çoğunlukla Inworld kullanmayı ele alacak ve artıları-eksileri ve nasıl yapılacağı hakkında tartışacak.  
